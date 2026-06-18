@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>korean-maritime-law-rag · 아키텍처</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #f1f5f9; }
+  body {
+    font-family: "Apple SD Gothic Neo", "Pretendard", -apple-system, system-ui, "Noto Sans KR", sans-serif;
+    -webkit-font-smoothing: antialiased; padding: 30px;
+  }
+  .diagram { width: 940px; background: #fff; border-radius: 18px; padding: 30px 32px; border: 1px solid #e2e8f0; }
+  .doc-title { font-size: 13px; font-weight: 800; letter-spacing: .04em; color: #94a3b8; margin-bottom: 22px; }
+  .doc-title b { color: #1d3a8a; }
+
+  .layer { display: flex; align-items: stretch; gap: 16px; }
+  .rail { flex: 0 0 96px; display: flex; flex-direction: column; justify-content: center; }
+  .rail .lbl { font-size: 11px; font-weight: 800; letter-spacing: .06em; color: #64748b; }
+  .rail .ko { font-size: 13px; font-weight: 700; color: #334155; margin-top: 2px; }
+
+  .body { flex: 1; border: 1.5px solid #e3e8f0; border-radius: 14px; background: #fbfcfe; padding: 14px 16px; display: flex; align-items: center; gap: 10px; }
+  .node { background: #fff; border: 1.5px solid #cdd6e2; border-radius: 10px; padding: 10px 14px; color: #334155; }
+  .node .n { font-size: 15.5px; font-weight: 800; }
+  .node .sub { font-size: 12px; color: #6b7280; margin-top: 3px; }
+  .sep { color: #b4bdc9; font-size: 18px; flex: 0 0 auto; }
+  .grow { flex: 1; }
+
+  /* index stores: 3 equal cards with brand dots */
+  .store { flex: 1; border-radius: 10px; padding: 11px 14px; border: 1.5px solid; }
+  .store .n { font-size: 15px; font-weight: 800; display: flex; align-items: center; gap: 7px; }
+  .store .sub { font-size: 12px; margin-top: 4px; opacity: .8; }
+  .bdot { width: 9px; height: 9px; border-radius: 50%; flex: 0 0 auto; }
+  .s-bm25 { background: #fff7ed; border-color: #fed7aa; color: #9a3412; }
+  .s-vec  { background: #eff6ff; border-color: #bfdbfe; color: #1e40af; }
+  .s-graph{ background: #f5f3ff; border-color: #ddd6fe; color: #5b21b6; }
+
+  .conn { display: flex; justify-content: center; color: #cbd5e1; font-size: 16px; padding: 5px 0; margin-left: 112px; }
+
+  /* agent + llm row */
+  .agent-body { flex: 1; border: 1.5px solid #9cc2fb; border-radius: 14px; background: #dceafe; padding: 14px 16px; }
+  .agent-flow { font-size: 15.5px; font-weight: 800; color: #1d3a8a; }
+  .agent-sub { font-size: 12.5px; color: #3b5b9e; margin-top: 5px; }
+  .llm { flex: 0 0 200px; border: 1.5px dashed #94a3b8; border-radius: 14px; background: #f8fafc; padding: 14px 16px; display: flex; flex-direction: column; justify-content: center; }
+  .llm .k { font-size: 11px; font-weight: 800; letter-spacing: .05em; color: #94a3b8; }
+  .llm .n { font-size: 15px; font-weight: 800; color: #334155; margin-top: 3px; }
+  .llm .sub { font-size: 12px; color: #6b7280; margin-top: 3px; }
+  .link { flex: 0 0 60px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #64748b; font-size: 12px; font-weight: 700; }
+  .link .ar { font-size: 18px; }
+
+  .serve { background: #ddf6e3 !important; border-color: #8fe0a6 !important; }
+  .serve .n { color: #14633a; }
+  .serve .sub { color: #15803d; }
+</style>
+</head>
+<body>
+  <div class="diagram" id="cap">
+    <div class="doc-title"><b>korean-maritime-law-rag</b> - 시스템 아키텍처</div>
+
+    <div class="layer">
+      <div class="rail"><div class="lbl">DATA</div><div class="ko">데이터 소스</div></div>
+      <div class="body"><div class="node grow"><div class="n">국가법령정보센터 OPEN API</div><div class="sub">law.go.kr · 법률 · 시행령 · 시행규칙 105개</div></div></div>
+    </div>
+    <div class="conn">▼</div>
+
+    <div class="layer">
+      <div class="rail"><div class="lbl">INGEST</div><div class="ko">수집 · 파싱</div></div>
+      <div class="body">
+        <div class="node"><div class="n">수집기</div><div class="sub">collectors/law_api.py</div></div>
+        <div class="sep">→</div>
+        <div class="node"><div class="n">raw JSON 캐시</div><div class="sub">재현용</div></div>
+        <div class="sep">→</div>
+        <div class="node"><div class="n">조문 · 별표 파서</div><div class="sub">article_parser · crossref</div></div>
+        <div class="sep">→</div>
+        <div class="node grow"><div class="n">Article corpus</div><div class="sub">7,506 조문·별표 · 16,269 엣지 · 시행일(as-of) 메타</div></div>
+      </div>
+    </div>
+    <div class="conn">▼ 인덱싱</div>
+
+    <div class="layer">
+      <div class="rail"><div class="lbl">INDEX</div><div class="ko">저장소 (3-way)</div></div>
+      <div class="body">
+        <div class="store s-bm25"><div class="n"><span class="bdot" style="background:#ea580c"></span>BM25</div><div class="sub">Kiwi 토크나이저 · 어휘 검색</div></div>
+        <div class="store s-vec"><div class="n"><span class="bdot" style="background:#2563eb"></span>Qdrant</div><div class="sub">KURE-v1 임베딩 · 벡터 검색</div></div>
+        <div class="store s-graph"><div class="n"><span class="bdot" style="background:#7c3aed"></span>Neo4j</div><div class="sub">CITES · APPLIES · IMPLEMENTS 인용·위임 그래프</div></div>
+      </div>
+    </div>
+    <div class="conn">▼</div>
+
+    <div class="layer">
+      <div class="rail"><div class="lbl">RETRIEVE</div><div class="ko">검색</div></div>
+      <div class="body"><div class="node grow"><div class="n">Retriever · RRF 융합 → cross-encoder reranker</div><div class="sub">vector · hybrid · graph(인용·위임 확장 · 정확 조문 pinning) · 로컬 미스 시 law.go.kr 실시간 조회</div></div></div>
+    </div>
+    <div class="conn">▼</div>
+
+    <div class="layer">
+      <div class="rail"><div class="lbl">AGENT</div><div class="ko">에이전트</div></div>
+      <div class="agent-body">
+        <div class="agent-flow">LangGraph · classify → retrieve → grade_evidence → generate → verify</div>
+        <div class="agent-sub">retrieve 단계서 전략 라우팅(vector/hybrid/graph) · LangChain with_structured_output · 부족 시 재검색 · 오인용 시 재생성 · 근거 없으면 거절 · Langfuse 추적</div>
+      </div>
+      <div class="link"><div class="ar">⇄</div>LLM 호출</div>
+      <div class="llm"><div class="k">LLM · LangChain</div><div class="n">OpenAI · 모델 설정 가능</div><div class="sub">langchain-openai · init_chat_model</div></div>
+    </div>
+    <div class="conn">▼</div>
+
+    <div class="layer">
+      <div class="rail"><div class="lbl">SERVE</div><div class="ko">서빙</div></div>
+      <div class="body serve"><div class="node grow serve" style="background:#eafff0;border-color:#a7e8bd"><div class="n">FastAPI</div><div class="sub">GET /health · /ready · POST /query · /query/stream (SSE 노드 진행 스트리밍)</div></div></div>
+    </div>
+  </div>
+</body>
+</html>
