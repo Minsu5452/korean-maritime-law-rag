@@ -1,0 +1,58 @@
+[project]
+name = "korean-maritime-law-rag"
+version = "0.1.0"
+description = "해양 법령 근거 인용 RAG"
+readme = "README.md"
+license = "Apache-2.0"
+authors = [{ name = "Minsu5452" }]
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "httpx>=0.27",
+    "tenacity>=8.2",
+    "pydantic>=2.7",
+    "pydantic-settings>=2.2",
+    "pyyaml>=6.0",
+    "rank-bm25>=0.2.2",
+    "kiwipiepy>=0.18",
+    "qdrant-client>=1.10",
+    "neo4j>=5.20",
+    "ranx>=0.3.19",
+    "langchain>=0.3",
+    "langchain-openai>=0.2",
+    "langgraph>=0.2",
+    "fastapi>=0.115",
+    "uvicorn>=0.30",
+]
+
+[project.optional-dependencies]
+# 임베더 비교(KURE-v1·BGE-M3·multilingual-e5)와 리랭커. torch 포함, CI 미설치
+ml = ["sentence-transformers>=3.0", "openai>=1.40"]
+obs = ["langfuse>=2.0,<3"]              # Langfuse 관측성
+eval = ["ragas>=0.2", "datasets>=2.0"]  # RAGAS 평가
+
+[project.urls]
+Repository = "https://github.com/Minsu5452/korean-maritime-law-rag"
+
+[dependency-groups]
+dev = ["pytest>=8.0", "respx>=0.21", "ruff>=0.4", "mypy>=1.10"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/korean_maritime_law_rag"]
+
+[tool.pytest.ini_options]
+addopts = "-m 'not integration' -q"
+markers = ["integration: Docker 서비스(Neo4j) 필요"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.mypy]
+python_version = "3.12"
+files = ["src/korean_maritime_law_rag"]
+ignore_missing_imports = true   # ranx·qdrant·neo4j·langchain·yaml 등 서드파티 스텁 미설치 허용

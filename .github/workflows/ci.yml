@@ -1,0 +1,33 @@
+name: ci
+on:
+  push: {branches: [main]}
+  pull_request:
+
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with: {python-version: "3.12"}
+      - run: uv sync
+      - run: uv run ruff check .
+      - run: uv run mypy               # src 타입 체크 (pyproject files 설정)
+      - run: uv run pytest -q          # integration 제외 (pyproject addopts)
+
+  integration:
+    runs-on: ubuntu-latest
+    services:
+      neo4j:
+        image: neo4j:5
+        env: {NEO4J_AUTH: neo4j/marinerag}
+        ports: ["7687:7687"]
+        options: >-
+          --health-cmd "wget -qO- http://localhost:7474 || exit 1"
+          --health-interval 5s --health-retries 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with: {python-version: "3.12"}
+      - run: uv sync
+      - run: uv run pytest -m integration -q --override-ini addopts=""
