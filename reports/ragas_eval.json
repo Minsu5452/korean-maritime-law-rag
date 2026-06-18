@@ -1,0 +1,11 @@
+{
+  "metrics": {
+    "faithfulness": 0.940007215007215,
+    "answer_relevancy": 0.8759851395215581,
+    "context_precision": 0.9843749999296874,
+    "context_recall": 0.9905405405405405
+  },
+  "judge": "현재 실행 설정을 확인하세요",
+  "n": 37,
+  "note": "이 파일은 마지막으로 저장된 평가 결과입니다. 모델 정보와 점수를 새로 맞추려면 scripts/ragas_score.py를 다시 실행하세요."
+}

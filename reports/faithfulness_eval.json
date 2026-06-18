@@ -1,0 +1,10 @@
+{
+  "metrics": {
+    "faithfulness_rate": 0.935064935064935,
+    "n": 154,
+    "grounded": 144,
+    "ungrounded": 10
+  },
+  "judge": "현재 실행 설정을 확인하세요",
+  "note": "이 파일은 마지막으로 저장된 평가 결과입니다. 모델 정보와 점수를 새로 맞추려면 scripts/evaluate_all.py를 다시 실행하세요."
+}

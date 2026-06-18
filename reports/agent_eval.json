@@ -1,0 +1,2187 @@
+{
+  "metrics": {
+    "classification_accuracy": 0.6722222222222223,
+    "citation_hit_rate": 0.922077922077922,
+    "refusal_accuracy": 1.0,
+    "n_answerable": 154,
+    "n_unanswerable": 26,
+    "oracle_routing_hit1": 0.35714285714285715,
+    "llm_routing_hit1": 0.525974025974026
+  },
+  "records": [
+    {
+      "id": "q001",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "001742::제83조"
+      ],
+      "cited_docs": [
+        "001742::제7조",
+        "001742::제83조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q002",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "001742::제84조"
+      ],
+      "cited_docs": [
+        "001742::제17조",
+        "001742::제84조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q003",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "001483::제44조"
+      ],
+      "cited_docs": [
+        "001483::제44조",
+        "001483::제5조",
+        "007684::제42조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q004",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "001483::제53조"
+      ],
+      "cited_docs": [
+        "001483::제4조",
+        "001483::제53조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q005",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "010379::제127조"
+      ],
+      "cited_docs": [
+        "010379::제22조",
+        "010379::제127조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q006",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "010379::제129조"
+      ],
+      "cited_docs": [
+        "010379::제129조",
+        "010379::제41조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q007",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "014483::제114조"
+      ],
+      "cited_docs": [
+        "014483::제114조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q008",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "014483::제114조"
+      ],
+      "cited_docs": [
+        "014483::제114조",
+        "014483::제9조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q009",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "001486::제107조"
+      ],
+      "cited_docs": [
+        "001486::제107조",
+        "001486::제19조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q010",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "001486::제31조"
+      ],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q011",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "001737::제113조"
+      ],
+      "cited_docs": [
+        "001737::제31조",
+        "001737::제113조",
+        "005528::별표7"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q012",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "000058::제31조"
+      ],
+      "cited_docs": [
+        "000058::제29조",
+        "000058::제31조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q013",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "000977::제46조"
+      ],
+      "cited_docs": [
+        "000977::제43조",
+        "000977::제18조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q014",
+      "gold_type": "single",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "000047::제89조"
+      ],
+      "cited_docs": [
+        "000047::제89조",
+        "000047::제29조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q015",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "001486::제29조"
+      ],
+      "cited_docs": [
+        "014396::제62조",
+        "014396::제42조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q016",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "001486::제112조"
+      ],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q017",
+      "gold_type": "single",
+      "pred_type": "single",
+      "gold_docs": [
+        "001742::제16조"
+      ],
+      "cited_docs": [
+        "003907::제5조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q018",
+      "gold_type": "single",
+      "pred_type": "single",
+      "gold_docs": [
+        "001742::제18조"
+      ],
+      "cited_docs": [
+        "001742::제18조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q019",
+      "gold_type": "single",
+      "pred_type": "single",
+      "gold_docs": [
+        "001742::제80조"
+      ],
+      "cited_docs": [
+        "001742::제80조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q020",
+      "gold_type": "single",
+      "pred_type": "single",
+      "gold_docs": [
+        "001483::제13조"
+      ],
+      "cited_docs": [
+        "001483::제13조",
+        "007684::제21조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q021",
+      "gold_type": "single",
+      "pred_type": "single",
+      "gold_docs": [
+        "001483::제21조"
+      ],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q022",
+      "gold_type": "single",
+      "pred_type": "single",
+      "gold_docs": [
+        "001483::제39조"
+      ],
+      "cited_docs": [
+        "001483::제39조",
+        "007684::별표20",
+        "001483::제3조의2"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q023",
+      "gold_type": "single",
+      "pred_type": "single",
+      "gold_docs": [
+        "001486::제7조"
+      ],
+      "cited_docs": [
+        "001486::제7조",
+        "001486::제8조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q024",
+      "gold_type": "single",
+      "pred_type": "single",
+      "gold_docs": [
+        "001486::제40조"
+      ],
+      "cited_docs": [
+        "001486::제40조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q025",
+      "gold_type": "single",
+      "pred_type": "single",
+      "gold_docs": [
+        "001486::제33조"
+      ],
+      "cited_docs": [
+        "001486::제33조",
+        "004019::제16조",
+        "004019::제17조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q026",
+      "gold_type": "single",
+      "pred_type": "single",
+      "gold_docs": [
+        "001486::제34조"
+      ],
+      "cited_docs": [
+        "001486::제34조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q027",
+      "gold_type": "single",
+      "pred_type": "single",
+      "gold_docs": [
+        "001737::제9조"
+      ],
+      "cited_docs": [
+        "001737::제9조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q028",
+      "gold_type": "single",
+      "pred_type": "single",
+      "gold_docs": [
+        "001737::제10조"
+      ],
+      "cited_docs": [
+        "001737::제10조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q029",
+      "gold_type": "single",
+      "pred_type": "single",
+      "gold_docs": [
+        "010379::제112조"
+      ],
+      "cited_docs": [
+        "010379::제112조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q030",
+      "gold_type": "single",
+      "pred_type": "single",
+      "gold_docs": [
+        "010379::제115조"
+      ],
+      "cited_docs": [
+        "010379::제115조",
+        "013459::제19조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q031",
+      "gold_type": "single",
+      "pred_type": "single",
+      "gold_docs": [
+        "014483::제5조"
+      ],
+      "cited_docs": [
+        "014483::제5조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q032",
+      "gold_type": "single",
+      "pred_type": "single",
+      "gold_docs": [
+        "000047::제3조"
+      ],
+      "cited_docs": [
+        "000047::제3조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q033",
+      "gold_type": "single",
+      "pred_type": "single",
+      "gold_docs": [
+        "000047::제6조"
+      ],
+      "cited_docs": [
+        "000047::제6조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q034",
+      "gold_type": "single",
+      "pred_type": "single",
+      "gold_docs": [
+        "000058::제7조"
+      ],
+      "cited_docs": [
+        "000058::제7조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q035",
+      "gold_type": "single",
+      "pred_type": "single",
+      "gold_docs": [
+        "000977::제26조"
+      ],
+      "cited_docs": [
+        "000977::제26조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q036",
+      "gold_type": "single",
+      "pred_type": "single",
+      "gold_docs": [
+        "000977::제30조의2"
+      ],
+      "cited_docs": [
+        "000977::제30조의2"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q037",
+      "gold_type": "single",
+      "pred_type": "single",
+      "gold_docs": [
+        "013566::제11조"
+      ],
+      "cited_docs": [
+        "013566::제11조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q038",
+      "gold_type": "single",
+      "pred_type": "single",
+      "gold_docs": [
+        "013566::제12조"
+      ],
+      "cited_docs": [
+        "013566::제12조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q039",
+      "gold_type": "definition",
+      "pred_type": "definition",
+      "gold_docs": [
+        "000047::제2조"
+      ],
+      "cited_docs": [
+        "000047::제2조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q040",
+      "gold_type": "definition",
+      "pred_type": "definition",
+      "gold_docs": [
+        "000058::제3조"
+      ],
+      "cited_docs": [
+        "000058::제3조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q041",
+      "gold_type": "definition",
+      "pred_type": "definition",
+      "gold_docs": [
+        "000977::제2조"
+      ],
+      "cited_docs": [
+        "000977::제2조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q042",
+      "gold_type": "definition",
+      "pred_type": "definition",
+      "gold_docs": [
+        "001483::제2조"
+      ],
+      "cited_docs": [
+        "001483::제2조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q043",
+      "gold_type": "definition",
+      "pred_type": "definition",
+      "gold_docs": [
+        "001486::제2조"
+      ],
+      "cited_docs": [
+        "001486::제2조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q044",
+      "gold_type": "definition",
+      "pred_type": "definition",
+      "gold_docs": [
+        "001737::제2조"
+      ],
+      "cited_docs": [
+        "001737::제2조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q045",
+      "gold_type": "definition",
+      "pred_type": "definition",
+      "gold_docs": [
+        "001742::제2조"
+      ],
+      "cited_docs": [
+        "001742::제2조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q046",
+      "gold_type": "definition",
+      "pred_type": "definition",
+      "gold_docs": [
+        "014483::제2조"
+      ],
+      "cited_docs": [
+        "014483::제2조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q047",
+      "gold_type": "single",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "001740::제27조",
+        "001740::제52조"
+      ],
+      "cited_docs": [
+        "001740::제43조",
+        "001740::제27조",
+        "007473::제20조",
+        "001740::제28조",
+        "001740::제32조",
+        "001740::제53조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q048",
+      "gold_type": "single",
+      "pred_type": "unanswerable",
+      "gold_docs": [
+        "009486::제21조",
+        "009486::제22조"
+      ],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q049",
+      "gold_type": "unanswerable",
+      "pred_type": "unanswerable",
+      "gold_docs": [],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q050",
+      "gold_type": "unanswerable",
+      "pred_type": "unanswerable",
+      "gold_docs": [],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q051",
+      "gold_type": "unanswerable",
+      "pred_type": "unanswerable",
+      "gold_docs": [],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q052",
+      "gold_type": "unanswerable",
+      "pred_type": "multihop",
+      "gold_docs": [],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q053",
+      "gold_type": "unanswerable",
+      "pred_type": "unanswerable",
+      "gold_docs": [],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q054",
+      "gold_type": "unanswerable",
+      "pred_type": "unanswerable",
+      "gold_docs": [],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q055",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "010379::제128조"
+      ],
+      "cited_docs": [
+        "010379::제128조",
+        "010379::제26조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q056",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "010379::제126조"
+      ],
+      "cited_docs": [
+        "010379::제126조",
+        "010379::제22조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q057",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "001737::제110조"
+      ],
+      "cited_docs": [
+        "001737::제110조",
+        "001737::제40조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q058",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "001737::제109조"
+      ],
+      "cited_docs": [
+        "001737::제109조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q059",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "001737::제108조"
+      ],
+      "cited_docs": [
+        "001737::제108조",
+        "001737::제83조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q060",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "001486::제106조"
+      ],
+      "cited_docs": [
+        "001486::제106조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q061",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "001486::제108조"
+      ],
+      "cited_docs": [
+        "001486::제108조",
+        "001486::제28조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q062",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "001486::제109조"
+      ],
+      "cited_docs": [
+        "001486::제109조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q063",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "001742::제86조"
+      ],
+      "cited_docs": [
+        "001742::제86조",
+        "001742::제43조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q064",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "001742::제85조"
+      ],
+      "cited_docs": [
+        "001742::제85조",
+        "001742::제41조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q065",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "014483::제118조"
+      ],
+      "cited_docs": [
+        "014483::제118조",
+        "014593::별표10"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q066",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "014483::제112조"
+      ],
+      "cited_docs": [
+        "014483::제40조",
+        "014483::제112조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q067",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "014483::제111조"
+      ],
+      "cited_docs": [
+        "014483::제111조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q068",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "014483::제115조"
+      ],
+      "cited_docs": [
+        "014483::제115조",
+        "014483::제10조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q069",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "014483::제113조"
+      ],
+      "cited_docs": [
+        "014483::제113조",
+        "014483::제115조",
+        "014483::제39조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q070",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "001483::제43조"
+      ],
+      "cited_docs": [
+        "001483::제43조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q071",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "001483::제46조"
+      ],
+      "cited_docs": [
+        "001483::제46조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q072",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "000977::제44조의2"
+      ],
+      "cited_docs": [
+        "000977::제44조의2",
+        "000977::제30조의8"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q073",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "000977::제45조"
+      ],
+      "cited_docs": [
+        "000977::제45조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q074",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "000047::제90조"
+      ],
+      "cited_docs": [
+        "000047::제90조",
+        "005551::별표2"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q075",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "000058::제33조"
+      ],
+      "cited_docs": [
+        "000058::제33조",
+        "005570::별표2"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q076",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "010379::제128조"
+      ],
+      "cited_docs": [
+        "010379::제40조",
+        "010379::제128조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q077",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "001742::제86조"
+      ],
+      "cited_docs": [
+        "001742::제44조",
+        "001742::제86조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q078",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "001483::제43조"
+      ],
+      "cited_docs": [
+        "001483::제43조",
+        "001483::제13조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q079",
+      "gold_type": "single",
+      "pred_type": "single",
+      "gold_docs": [
+        "001740::제59조",
+        "001740::제60조"
+      ],
+      "cited_docs": [
+        "001740::제59조",
+        "001740::제60조",
+        "001740::제61조",
+        "007473::제39조의6"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q080",
+      "gold_type": "single",
+      "pred_type": "single",
+      "gold_docs": [
+        "001743::제24조"
+      ],
+      "cited_docs": [
+        "001743::제24조",
+        "001743::제27조",
+        "008695::제16조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q081",
+      "gold_type": "single",
+      "pred_type": "single",
+      "gold_docs": [
+        "000062::제4조"
+      ],
+      "cited_docs": [
+        "000062::제4조",
+        "000062::제6조",
+        "005530::제4조",
+        "005530::별표1"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q082",
+      "gold_type": "single",
+      "pred_type": "single",
+      "gold_docs": [
+        "011350::제25조"
+      ],
+      "cited_docs": [
+        "011350::제25조",
+        "011698::제16조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q083",
+      "gold_type": "unanswerable",
+      "pred_type": "single",
+      "gold_docs": [],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q084",
+      "gold_type": "unanswerable",
+      "pred_type": "unanswerable",
+      "gold_docs": [],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q085",
+      "gold_type": "unanswerable",
+      "pred_type": "unanswerable",
+      "gold_docs": [],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q086",
+      "gold_type": "unanswerable",
+      "pred_type": "unanswerable",
+      "gold_docs": [],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q087",
+      "gold_type": "unanswerable",
+      "pred_type": "unanswerable",
+      "gold_docs": [],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q088",
+      "gold_type": "unanswerable",
+      "pred_type": "unanswerable",
+      "gold_docs": [],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q089",
+      "gold_type": "unanswerable",
+      "pred_type": "unanswerable",
+      "gold_docs": [],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q090",
+      "gold_type": "unanswerable",
+      "pred_type": "unanswerable",
+      "gold_docs": [],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q091",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "000054::제41조"
+      ],
+      "cited_docs": [
+        "000054::제13조",
+        "000054::제41조",
+        "003414::별표4"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q092",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "010965::제70조"
+      ],
+      "cited_docs": [
+        "010965::제12조",
+        "010965::제70조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q093",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "009486::제71조"
+      ],
+      "cited_docs": [
+        "009486::제20조",
+        "009486::제71조",
+        "009599::별표2"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q094",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "000049::제53조"
+      ],
+      "cited_docs": [
+        "000049::제53조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q095",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "013459::제24조"
+      ],
+      "cited_docs": [
+        "013459::제10조",
+        "013459::제24조",
+        "013641::제4조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q096",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "000749::제24조"
+      ],
+      "cited_docs": [
+        "000749::제24조",
+        "000749::제15조의2"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q097",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "007831::제13조"
+      ],
+      "cited_docs": [
+        "001015::제11조",
+        "007831::제13조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q098",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "014619::제69조"
+      ],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q099",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "010653::제6조"
+      ],
+      "cited_docs": [
+        "010512::제10조",
+        "010653::제6조",
+        "010653::서식4"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q100",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "003414::제5조"
+      ],
+      "cited_docs": [
+        "003414::제5조",
+        "003414::제7조",
+        "003414::제8조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q101",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "007684::제22조"
+      ],
+      "cited_docs": [
+        "007684::제22조",
+        "001483::제13조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q102",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "005578::제6조"
+      ],
+      "cited_docs": [
+        "005578::제6조",
+        "008674::제6조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q103",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "007456::제21조"
+      ],
+      "cited_docs": [
+        "007456::제21조",
+        "007456::서식4"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q104",
+      "gold_type": "multihop",
+      "pred_type": "definition",
+      "gold_docs": [
+        "004379::제10조"
+      ],
+      "cited_docs": [
+        "001015::제12조",
+        "004379::제10조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q105",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "014619::제70조"
+      ],
+      "cited_docs": [
+        "014483::제104조",
+        "014619::제70조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q106",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "013574::제78조"
+      ],
+      "cited_docs": [
+        "013574::제78조",
+        "013574::제10조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q107",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "000047::제88조의2"
+      ],
+      "cited_docs": [
+        "000047::제88조의2"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q108",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "010657::제9조"
+      ],
+      "cited_docs": [
+        "010657::제9조",
+        "010508::제10조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q109",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "005526::제7조"
+      ],
+      "cited_docs": [
+        "005526::제7조",
+        "000049::제10조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q110",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "011674::제4조"
+      ],
+      "cited_docs": [
+        "011674::제4조",
+        "011562::제10조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q111",
+      "gold_type": "multihop",
+      "pred_type": "definition",
+      "gold_docs": [
+        "013911::제14조"
+      ],
+      "cited_docs": [
+        "013616::제10조",
+        "013911::제14조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q112",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "011114::제9조"
+      ],
+      "cited_docs": [
+        "011114::제9조",
+        "011016::제10조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q113",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "004019::제73조"
+      ],
+      "cited_docs": [
+        "001486::제100조",
+        "010965::제63조",
+        "011189::제52조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q114",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "009599::제16조"
+      ],
+      "cited_docs": [
+        "009599::제16조",
+        "009486::제13조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q115",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "013641::제4조"
+      ],
+      "cited_docs": [
+        "013641::제4조",
+        "013459::제10조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q116",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "007464::제22조의2"
+      ],
+      "cited_docs": [
+        "007464::제22조의2",
+        "001739::제10조의2",
+        "003916::제17조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q117",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "007528::제7조"
+      ],
+      "cited_docs": [
+        "007528::제7조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q118",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "011016::제39조"
+      ],
+      "cited_docs": [
+        "011016::제39조",
+        "011016::제12조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q119",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "001988::제61조"
+      ],
+      "cited_docs": [
+        "001988::제16조",
+        "001988::제61조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q120",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "010511::제36조"
+      ],
+      "cited_docs": [
+        "010511::제36조",
+        "010647::별표4"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q121",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "000058::제33조"
+      ],
+      "cited_docs": [
+        "000058::제33조",
+        "005570::별표2"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q122",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "011715::제20조"
+      ],
+      "cited_docs": [
+        "011715::제20조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q123",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "013851::제9조"
+      ],
+      "cited_docs": [
+        "013851::제9조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q124",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "005528::제91조"
+      ],
+      "cited_docs": [
+        "001737::제101조",
+        "005528::제91조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q125",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "013467::제6조"
+      ],
+      "cited_docs": [
+        "013467::제6조",
+        "013115::제13조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q126",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "010632::제73조"
+      ],
+      "cited_docs": [
+        "010632::제73조",
+        "010379::제102조",
+        "010379::제98조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q127",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "007449::제17조"
+      ],
+      "cited_docs": [
+        "000068::제11조",
+        "007449::제17조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q128",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "011189::제4조"
+      ],
+      "cited_docs": [
+        "010965::제10조",
+        "011189::제4조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q129",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "010650::제19조"
+      ],
+      "cited_docs": [
+        "010650::제19조",
+        "010511::제10조",
+        "010650::서식9"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q130",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "008667::제3조"
+      ],
+      "cited_docs": [
+        "008667::제3조",
+        "005570::제5조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q131",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "009377::제8조"
+      ],
+      "cited_docs": [
+        "009377::제8조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q132",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "011692::제7조"
+      ],
+      "cited_docs": [
+        "011350::제10조",
+        "011692::제7조",
+        "011698::제4조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q133",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "008651::제43조"
+      ],
+      "cited_docs": [
+        "008651::제43조",
+        "001737::제101조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q134",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "001739::제27조"
+      ],
+      "cited_docs": [
+        "001739::제27조",
+        "001739::제10조의2",
+        "001739::제2조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q135",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "010512::제54조"
+      ],
+      "cited_docs": [
+        "010512::제54조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q136",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "003414::제4조"
+      ],
+      "cited_docs": [
+        "003414::제4조",
+        "000054::제14조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q137",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "008656::제15조"
+      ],
+      "cited_docs": [
+        "008656::제15조",
+        "008656::서식9",
+        "008656::서식10",
+        "000062::제10조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q138",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "005578::제8조"
+      ],
+      "cited_docs": [
+        "000749::제10조",
+        "005578::제8조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q139",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "004026::제12조"
+      ],
+      "cited_docs": [
+        "004026::제12조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q140",
+      "gold_type": "multihop",
+      "pred_type": "definition",
+      "gold_docs": [
+        "004379::제11조"
+      ],
+      "cited_docs": [
+        "004379::제11조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q141",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "010653::제5조"
+      ],
+      "cited_docs": [
+        "010653::제5조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q142",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "007684::제32조"
+      ],
+      "cited_docs": [
+        "007684::제32조",
+        "009486::제64조의3",
+        "009600::제8조의4"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q143",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "008656::제15조의2"
+      ],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q144",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "011350::제53조"
+      ],
+      "cited_docs": [
+        "011350::제53조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q145",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "000068::제35조"
+      ],
+      "cited_docs": [
+        "000068::제35조",
+        "000068::제10조",
+        "003904::제3조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q146",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "001015::제40조"
+      ],
+      "cited_docs": [
+        "001015::제40조",
+        "001015::제12조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q147",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "000062::제32조"
+      ],
+      "cited_docs": [
+        "000062::제32조",
+        "000062::제10조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q148",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "009599::제14조"
+      ],
+      "cited_docs": [
+        "009599::제14조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q149",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "013641::제3조"
+      ],
+      "cited_docs": [
+        "013641::제3조",
+        "013459::제10조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q150",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "010657::제7조"
+      ],
+      "cited_docs": [
+        "010508::제10조",
+        "010657::제7조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q151",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "003916::제17조"
+      ],
+      "cited_docs": [
+        "003916::제17조",
+        "007464::제22조의5",
+        "007464::제22조의4",
+        "001739::제10조의2"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q152",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "007528::제6조"
+      ],
+      "cited_docs": [
+        "007528::제6조",
+        "000977::제10조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q153",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "011674::제4조의3"
+      ],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q154",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "011115::제12조"
+      ],
+      "cited_docs": [
+        "011016::제10조",
+        "011115::제12조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q155",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "004019::제74조"
+      ],
+      "cited_docs": [
+        "004019::제74조",
+        "001486::제101조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q156",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "009599::제15조"
+      ],
+      "cited_docs": [
+        "009599::제15조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q157",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "005551::제17조의2"
+      ],
+      "cited_docs": [
+        "005551::제17조의2",
+        "000047::제16조의2"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q158",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "010601::제46조"
+      ],
+      "cited_docs": [
+        "010601::제10조",
+        "010601::제46조",
+        "011343::별표3"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q159",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "000977::제46조"
+      ],
+      "cited_docs": [
+        "000977::제10조",
+        "000977::제46조",
+        "003997::별표2"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q160",
+      "gold_type": "multihop",
+      "pred_type": "multihop",
+      "gold_docs": [
+        "011562::제21조"
+      ],
+      "cited_docs": [
+        "011562::제21조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q161",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "010379::제19조"
+      ],
+      "cited_docs": [
+        "010379::제19조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q162",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "003904::제3조"
+      ],
+      "cited_docs": [
+        "000068::제10조",
+        "003904::제3조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q163",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "005570::제4조"
+      ],
+      "cited_docs": [
+        "000058::제10조",
+        "005570::제4조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q164",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "009377::제9조"
+      ],
+      "cited_docs": [
+        "009377::제9조",
+        "009323::제11조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q165",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "011698::제4조"
+      ],
+      "cited_docs": [
+        "011698::제4조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q166",
+      "gold_type": "multihop",
+      "pred_type": "definition",
+      "gold_docs": [
+        "013465::제12조"
+      ],
+      "cited_docs": [
+        "013465::제12조",
+        "013115::제13조"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q167",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "005570::제5조"
+      ],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q168",
+      "gold_type": "multihop",
+      "pred_type": "single",
+      "gold_docs": [
+        "009377::제13조의2"
+      ],
+      "cited_docs": [
+        "009323::제17조",
+        "009377::제13조의2"
+      ],
+      "refused": false
+    },
+    {
+      "id": "q169",
+      "gold_type": "unanswerable",
+      "pred_type": "unanswerable",
+      "gold_docs": [],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q170",
+      "gold_type": "unanswerable",
+      "pred_type": "unanswerable",
+      "gold_docs": [],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q171",
+      "gold_type": "unanswerable",
+      "pred_type": "unanswerable",
+      "gold_docs": [],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q172",
+      "gold_type": "unanswerable",
+      "pred_type": "unanswerable",
+      "gold_docs": [],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q173",
+      "gold_type": "unanswerable",
+      "pred_type": "unanswerable",
+      "gold_docs": [],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q174",
+      "gold_type": "unanswerable",
+      "pred_type": "unanswerable",
+      "gold_docs": [],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q175",
+      "gold_type": "unanswerable",
+      "pred_type": "unanswerable",
+      "gold_docs": [],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q176",
+      "gold_type": "unanswerable",
+      "pred_type": "unanswerable",
+      "gold_docs": [],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q177",
+      "gold_type": "unanswerable",
+      "pred_type": "unanswerable",
+      "gold_docs": [],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q178",
+      "gold_type": "unanswerable",
+      "pred_type": "unanswerable",
+      "gold_docs": [],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q179",
+      "gold_type": "unanswerable",
+      "pred_type": "unanswerable",
+      "gold_docs": [],
+      "cited_docs": [],
+      "refused": true
+    },
+    {
+      "id": "q180",
+      "gold_type": "unanswerable",
+      "pred_type": "unanswerable",
+      "gold_docs": [],
+      "cited_docs": [],
+      "refused": true
+    }
+  ]
+}
