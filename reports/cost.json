@@ -1,0 +1,309 @@
+{
+  "model": "openai:gpt-4o-mini",
+  "price_usd_per_1m": {
+    "input": 0.15,
+    "output": 0.6
+  },
+  "summary": {
+    "n": 18,
+    "mean_input": 5635.055555555556,
+    "mean_output": 201.61111111111111,
+    "mean_cost_usd": 0.0009662249999999999,
+    "total_cost_usd": 0.01739205
+  },
+  "records": [
+    {
+      "id": "q001",
+      "type": "multihop",
+      "question": "선박을 건조할 때 받아야 하는 건조검사를 받지 않으면 어떤 처벌을 받나요?",
+      "input_tokens": 8187,
+      "output_tokens": 238,
+      "strategy": "graph",
+      "query_type": "multihop",
+      "refused": false,
+      "citations": [
+        "001742::제83조"
+      ],
+      "retrieval_attempts": 2,
+      "generation_attempts": 1,
+      "answer": "선박을 건조할 때 받아야 하는 건조검사를 받지 않으면 3년 이하의 징역 또는 3천만원 이하의 벌금에 처해질 수 있습니다."
+    },
+    {
+      "id": "q002",
+      "type": "multihop",
+      "question": "선박검사증서가 없는 선박을 항해에 사용하면 어떤 처벌을 받나요?",
+      "input_tokens": 4800,
+      "output_tokens": 192,
+      "strategy": "graph",
+      "query_type": "multihop",
+      "refused": false,
+      "citations": [
+        "001742::제84조"
+      ],
+      "retrieval_attempts": 1,
+      "generation_attempts": 1,
+      "answer": "선박검사증서가 없는 선박을 항해에 사용하면 1년 이하의 징역 또는 1천만원 이하의 벌금에 처해질 수 있습니다. 이는 선박안전법 제84조 제1항 제5호에 해당하는 위반행위입니다."
+    },
+    {
+      "id": "q003",
+      "type": "multihop",
+      "question": "어선에 무선설비를 갖추지 않고 항행하면 어떤 벌칙이 적용되나요?",
+      "input_tokens": 5669,
+      "output_tokens": 203,
+      "strategy": "graph",
+      "query_type": "multihop",
+      "refused": false,
+      "citations": [
+        "001483::제44조",
+        "001483::제5조"
+      ],
+      "retrieval_attempts": 1,
+      "generation_attempts": 1,
+      "answer": "어선에 무선설비를 갖추지 않고 항행하는 경우, 어선법 제44조에 따라 1년 이하의 징역 또는 1천만원 이하의 벌금에 처해질 수 있습니다. 이는 제5조제1항에 따른 무선설비를 갖추지 아니하고 어선을 항행 또는 조업에 사용한 경우에 해당합니다."
+    },
+    {
+      "id": "q004",
+      "type": "multihop",
+      "question": "어선에 표시된 만재흘수선을 초과해서 어획물이나 사람을 싣고 항행하면 어떤 처벌을 받나요?",
+      "input_tokens": 5747,
+      "output_tokens": 195,
+      "strategy": "graph",
+      "query_type": "multihop",
+      "refused": false,
+      "citations": [
+        "001483::제53조"
+      ],
+      "retrieval_attempts": 1,
+      "generation_attempts": 1,
+      "answer": "어선에 표시된 만재흘수선을 초과하여 어획물이나 사람을 싣고 항행하는 경우, 300만원 이하의 과태료가 부과됩니다."
+    },
+    {
+      "id": "q005",
+      "type": "multihop",
+      "question": "선박으로부터 오염물질인 폐기물을 고의로 해양에 배출하면 어떤 형사처벌을 받나요?",
+      "input_tokens": 5391,
+      "output_tokens": 192,
+      "strategy": "graph",
+      "query_type": "multihop",
+      "refused": false,
+      "citations": [
+        "010379::제127조"
+      ],
+      "retrieval_attempts": 1,
+      "generation_attempts": 1,
+      "answer": "선박으로부터 오염물질인 폐기물을 고의로 해양에 배출하면, 해양환경관리법 제127조에 따라 3년 이하의 징역 또는 3천만원 이하의 벌금에 처해질 수 있습니다."
+    },
+    {
+      "id": "q006",
+      "type": "multihop",
+      "question": "선박에 대기오염방지설비를 설치하지 않고 항해에 사용하면 어떤 벌칙을 받나요?",
+      "input_tokens": 5384,
+      "output_tokens": 165,
+      "strategy": "graph",
+      "query_type": "multihop",
+      "refused": false,
+      "citations": [
+        "010379::제129조",
+        "010379::제41조"
+      ],
+      "retrieval_attempts": 1,
+      "generation_attempts": 1,
+      "answer": "대기오염방지설비를 설치하지 않고 선박을 항해에 사용한 경우, 1년 이하의 징역 또는 1천만원 이하의 벌금에 처해질 수 있습니다."
+    },
+    {
+      "id": "q007",
+      "type": "multihop",
+      "question": "허가 없이 해양시설 보호수역에 입역하면 어떤 처벌을 받나요?",
+      "input_tokens": 4101,
+      "output_tokens": 136,
+      "strategy": "graph",
+      "query_type": "multihop",
+      "refused": false,
+      "citations": [
+        "014483::제114조"
+      ],
+      "retrieval_attempts": 1,
+      "generation_attempts": 1,
+      "answer": "허가 없이 해양시설 보호수역에 입역한 자는 1년 이하의 징역 또는 1천만원 이하의 벌금에 처해질 수 있습니다."
+    },
+    {
+      "id": "q008",
+      "type": "multihop",
+      "question": "교통안전특정해역에서 어구를 설치하거나 양식업을 하면 어떤 벌칙이 적용되나요?",
+      "input_tokens": 4768,
+      "output_tokens": 205,
+      "strategy": "graph",
+      "query_type": "multihop",
+      "refused": false,
+      "citations": [
+        "014483::제114조",
+        "014483::제9조"
+      ],
+      "retrieval_attempts": 1,
+      "generation_attempts": 1,
+      "answer": "교통안전특정해역에서 어구를 설치하거나 양식업을 하는 경우, 해상교통안전법 제114조에 따라 1년 이하의 징역 또는 1천만원 이하의 벌금에 처해질 수 있습니다."
+    },
+    {
+      "id": "q014",
+      "type": "single",
+      "question": "심판변론인이 직무상 알게 된 비밀을 누설하면 어떤 처벌을 받나요?",
+      "input_tokens": 2182,
+      "output_tokens": 160,
+      "strategy": "graph",
+      "query_type": "multihop",
+      "refused": false,
+      "citations": [
+        "000047::제89조"
+      ],
+      "retrieval_attempts": 1,
+      "generation_attempts": 1,
+      "answer": "심판변론인이 직무상 알게 된 비밀을 누설하면 1년 이하의 징역 또는 1천만원 이하의 벌금에 처해집니다."
+    },
+    {
+      "id": "q017",
+      "type": "single",
+      "question": "선박검사증서의 유효기간은 최대 몇 년인가요?",
+      "input_tokens": 5597,
+      "output_tokens": 97,
+      "strategy": "hybrid",
+      "query_type": "single",
+      "refused": false,
+      "citations": [
+        "003907::제5조",
+        "001483::제28조"
+      ],
+      "retrieval_attempts": 1,
+      "generation_attempts": 1,
+      "answer": "선박검사증서의 유효기간은 최대 5년입니다."
+    },
+    {
+      "id": "q018",
+      "type": "single",
+      "question": "선박용물건이나 소형선박을 제조·수입하려면 검정 전에 무엇을 먼저 받아야 하나요?",
+      "input_tokens": 7724,
+      "output_tokens": 148,
+      "strategy": "vector",
+      "query_type": "definition",
+      "refused": false,
+      "citations": [
+        "001742::제18조"
+      ],
+      "retrieval_attempts": 1,
+      "generation_attempts": 1,
+      "answer": "선박용물건이나 소형선박을 제조·수입하려면 검정 전에 해양수산부장관의 형식에 관한 승인을 먼저 받아야 합니다."
+    },
+    {
+      "id": "q019",
+      "type": "single",
+      "question": "건조검사, 선박검사 등을 신청하는 자는 누구에게 수수료를 납부하나요?",
+      "input_tokens": 7018,
+      "output_tokens": 165,
+      "strategy": "hybrid",
+      "query_type": "single",
+      "refused": false,
+      "citations": [
+        "001742::제80조"
+      ],
+      "retrieval_attempts": 1,
+      "generation_attempts": 1,
+      "answer": "건조검사, 선박검사 등을 신청하는 자는 해양수산부장관에게 수수료를 납부하여야 합니다. 다만, 대행검사기관이 이 법에 따른 업무를 대행하는 경우에는 해당 대행검사기관이 정하는 수수료를 해당 기관에 납부해야 합니다."
+    },
+    {
+      "id": "q020",
+      "type": "single",
+      "question": "어선의 소유자는 어선 등록을 어디에 해야 하나요?",
+      "input_tokens": 5138,
+      "output_tokens": 165,
+      "strategy": "hybrid",
+      "query_type": "single",
+      "refused": false,
+      "citations": [
+        "001483::제13조"
+      ],
+      "retrieval_attempts": 1,
+      "generation_attempts": 1,
+      "answer": "어선의 소유자는 그 어선이나 선박이 주로 입항ㆍ출항하는 항구 및 포구를 관할하는 시장ㆍ군수ㆍ구청장에게 해양수산부령으로 정하는 바에 따라 어선원부에 어선의 등록을 하여야 합니다."
+    },
+    {
+      "id": "q021",
+      "type": "single",
+      "question": "어선 소유자가 정기검사, 중간검사, 특별검사를 받아야 하는 검사 항목은 무엇인가요?",
+      "input_tokens": 6181,
+      "output_tokens": 477,
+      "strategy": "graph",
+      "query_type": "multihop",
+      "refused": false,
+      "citations": [
+        "001483::제21조",
+        "007684::제44조"
+      ],
+      "retrieval_attempts": 1,
+      "generation_attempts": 1,
+      "answer": "어선 소유자가 받아야 하는 검사 항목은 다음과 같습니다:\n\n1. **정기검사**: 최초로 항행의 목적에 사용하는 때 또는 어선검사증서의 유효기간이 만료된 때 행하는 정밀한 검사입니다. \n   - 검사 항목: 법 제3조제1호부터 제3호까지, 제5호, 제6호, 제8호부터 제11호까지의 설비와 법 제4조제1항에 따른 만재흘수선의 표시.\n\n2. **중간검사**: 정기검사와 다음의 정기검사와의 사이에 행하는 간단한 검사입니다. \n   - 검사 항목: \n     - 제1종 중간검사: 법 제3조제1호부터 제3호까지, 제5호, 제6호, 제8호부터 제11호까지의 설비와 법 제4조제1항에 따른 만재흘수선의 표시.\n     - 제2종 중간검사: 법 제3조제1호(선체의 내부구조로 한정), 제2호(선체 내부의 추진설비로 한정), 제3호, 제5호(선체 내부의 조타설비로 한정), 제8호, 제9호, 제11호의 설비.\n\n3. **특별검사**: 해양수산부령으로 정하는 바에 따라 임시로 특수한 용도에 사용하는 때 행하는 간단한 검사입니다. \n   - 검사 항목: 특별히 정해진 바에 따라 다를 수 있습니다."
+    },
+    {
+      "id": "q039",
+      "type": "definition",
+      "question": "해양사고의 조사 및 심판에 관한 법률에서 말하는 '해양사고'란 무엇인가요?",
+      "input_tokens": 4311,
+      "output_tokens": 249,
+      "strategy": "vector",
+      "query_type": "definition",
+      "refused": false,
+      "citations": [
+        "000047::제2조"
+      ],
+      "retrieval_attempts": 1,
+      "generation_attempts": 1,
+      "answer": "'해양사고'란 해양 및 내수면에서 발생한 다음 각 목의 어느 하나에 해당하는 사고를 말합니다. 1) 선박의 구조, 설비 또는 운용과 관련하여 사람이 사망 또는 실종되거나 부상을 입은 사고, 2) 선박의 운용과 관련하여 선박이나 육상시설, 해상시설이 손상된 사고, 3) 선박이 멸실, 유기되거나 행방불명된 사고, 4) 선박이 충돌, 좌초, 전복, 침몰되거나 선박을 조종할 수 없게 된 사고, 5) 선박의 운용과 관련하여 해양오염 피해가 발생한 사고를 포함합니다."
+    },
+    {
+      "id": "q040",
+      "type": "definition",
+      "question": "해사안전기본법에서 '해사안전관리'란 무엇을 의미하나요?",
+      "input_tokens": 6884,
+      "output_tokens": 205,
+      "strategy": "vector",
+      "query_type": "definition",
+      "refused": false,
+      "citations": [
+        "000058::제3조"
+      ],
+      "retrieval_attempts": 1,
+      "generation_attempts": 1,
+      "answer": "\"해사안전관리\"란 선원ㆍ선박소유자 등 인적 요인, 선박ㆍ화물 등 물적 요인, 해상교통체계ㆍ교통시설 등 환경적 요인, 국제협약ㆍ안전제도 등 제도적 요인을 종합적ㆍ체계적으로 관리함으로써 선박의 운용과 관련된 모든 일에서 발생할 수 있는 사고로부터 사람의 생명ㆍ신체 및 재산의 안전을 확보하기 위한 모든 활동을 말합니다."
+    },
+    {
+      "id": "q041",
+      "type": "definition",
+      "question": "수상에서의 수색·구조 등에 관한 법률에서 '수난구호'란 무엇인가요?",
+      "input_tokens": 7076,
+      "output_tokens": 165,
+      "strategy": "vector",
+      "query_type": "definition",
+      "refused": false,
+      "citations": [
+        "000977::제2조"
+      ],
+      "retrieval_attempts": 1,
+      "generation_attempts": 1,
+      "answer": "'수난구호'란 수상에서 조난된 사람 및 선박, 항공기, 수상레저기구 등의 수색, 구조, 구난과 구조된 사람, 선박 및 물건의 보호, 관리, 사후처리에 관한 업무를 말합니다."
+    },
+    {
+      "id": "q042",
+      "type": "definition",
+      "question": "어선법에서 '어선'이란 어떤 선박을 말하나요?",
+      "input_tokens": 5273,
+      "output_tokens": 272,
+      "strategy": "vector",
+      "query_type": "definition",
+      "refused": false,
+      "citations": [
+        "001483::제2조"
+      ],
+      "retrieval_attempts": 1,
+      "generation_attempts": 1,
+      "answer": "어선법에서 '어선'이란 다음 각 목의 어느 하나에 해당하는 선박을 말합니다. 1. 어업(양식업 포함), 어획물운반업 또는 수산물가공업에 종사하는 선박 2. 수산업에 관한 시험ㆍ조사ㆍ지도ㆍ단속 또는 교습에 종사하는 선박 3. 건조허가를 받아 건조 중이거나 건조한 선박 4. 어선의 등록을 한 선박입니다."
+    }
+  ]
+}
