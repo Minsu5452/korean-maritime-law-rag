@@ -4,6 +4,8 @@
 
 법령 질의는 일반 문서 검색과 조금 다릅니다. 법령명과 조문 번호가 직접 들어오는 질문도 있고, 법률 조문이 시행령이나 시행규칙으로 이어지는 질문도 있습니다. 그래서 이 프로젝트는 BM25, 벡터 검색, 조문 관계 그래프를 각각 만들고 검색 결과를 합치는 방식으로 구성했습니다.
 
+<img src="docs/diagrams/example.png" alt="질의 예시 — 근거 조문 인용" width="900">
+
 ## 구현 범위
 
 - 국가법령정보센터 OPEN API 응답을 조문과 별표 단위로 파싱
@@ -108,12 +110,25 @@ OPENAI_API_KEY=... uv run uvicorn korean_maritime_law_rag.serving.app:app
 
 현재 결과에서는 벡터 검색이 1순위 정답률에서 가장 안정적이었고, 그래프 검색은 정답 후보를 넓히는 데 더 강했습니다. 리랭커를 켜면 세 전략의 차이가 줄어듭니다.
 
+### 지연과 비용
+
+답변 생성까지 포함한 end-to-end 지연과 질의당 비용입니다. 에이전트는 `gpt-4o-mini`로 동작하고, 생성 품질을 평가하는 judge 모델만 `gpt-4o`로 분리했습니다.
+
+| 항목 | 값 |
+|---|---:|
+| end-to-end 지연 | p50 6.2초 · p95 12.5초 (골드셋 180문항) |
+| 질의당 입력·출력 토큰(평균) | 5,635 · 202 (답변 가능 18문항 실측) |
+| 질의당 비용(추정) | 약 $0.001 (약 1.4원, OpenAI 공개 단가 기준) |
+
+지연 결과는 `reports/latency.json`, 비용 결과는 `reports/cost.md`에 저장되어 있습니다. 토큰 수는 실측값이고 비용은 공개 단가를 곱한 추정치라, 단가가 바뀌면 아래 `measure_cost.py`로 다시 계산하면 됩니다.
+
 재현 명령:
 
 ```bash
 uv run python scripts/validate_gold.py
 uv run python scripts/significance.py
 OPENAI_API_KEY=... uv run python scripts/evaluate_all.py
+OPENAI_API_KEY=... uv run python scripts/measure_cost.py
 ```
 
 상세 결과는 [reports/significance.md](reports/significance.md), [reports/embedder_ablation.md](reports/embedder_ablation.md), [reports/agent_eval.md](reports/agent_eval.md)에 있습니다.
@@ -139,7 +154,7 @@ configs/           실행 설정과 수집 대상 법령 목록
 ## 구현하면서 신경 쓴 점
 
 - 법령 인용 관계는 LLM이 아니라 규칙 기반 파서로 추출했습니다. 법령 인용은 표기가 비교적 명확하고, 테스트로 회귀를 잡는 편이 안정적이라고 판단했습니다.
-- 그래프 검색은 단독 검색 전략이라기보다 후보 확장 장치로 두었습니다. 현재 평가에서도 그래프는 hit@1보다 recall@10에서 더 의미가 있었습니다.
+- 그래프 검색은 단독 검색 전략이라기보다 후보 확장 장치로 두었습니다. 현재 평가에서 그래프의 hit@1(0.273)은 벡터 검색(0.539)보다 낮지만 recall@10(0.945)은 세 전략 중 가장 높았습니다. Neo4j 의존성을 떠안는 대신 정확 조문 pinning, 법률→시행령→시행규칙 위임(IMPLEMENTS) 체인 추적, 가장 넓은 정답 후보 확보를 얻는 선택이었습니다. 이 비용이 부담되면 Neo4j 없이 vector나 hybrid 전략만으로도 검색은 동작합니다.
 - 생성 모델이 검색 결과 밖의 조문을 인용하지 못하도록 citation enum을 넘기고, 생성 후에도 인용이 실제 검색 결과에 있는지 다시 확인합니다.
 - Langfuse, 실시간 법령 조회, 실제 LLM 호출처럼 외부 서비스가 필요한 경로는 기본 테스트와 분리했습니다.
 
