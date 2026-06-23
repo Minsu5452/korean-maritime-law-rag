@@ -15,10 +15,11 @@ from korean_maritime_law_rag.models import Article
 
 
 def make_qdrant_client(url: str | None = None) -> QdrantClient:
-    """Create a Qdrant client from config.
+    """설정값으로 Qdrant 클라이언트를 만든다.
 
-    qdrant-client treats ``url=None`` as a remote client with library defaults, not
-    as local memory. The project config uses None to mean "no external service".
+    qdrant-client는 ``url=None``을 라이브러리 기본값을 쓰는 원격 클라이언트로 해석하므로
+    인메모리가 아니다. 이 프로젝트 설정에서는 None을 "외부 서비스 없음"의 의미로 쓰기 때문에
+    url이 없으면 인메모리(:memory:) 클라이언트를 쓴다.
     """
     return QdrantClient(url=url) if url else QdrantClient(":memory:")
 

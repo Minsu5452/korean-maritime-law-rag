@@ -39,7 +39,7 @@ def _flatten_text(value: Any) -> str:
         return ""
     if isinstance(value, str):
         return value
-    # list (possibly nested): flatten recursively, joining with newline
+    # 리스트(중첩 가능): 재귀로 평탄화하고 줄바꿈으로 잇는다.
     parts: list[str] = []
     for item in value:
         parts.append(_flatten_text(item))

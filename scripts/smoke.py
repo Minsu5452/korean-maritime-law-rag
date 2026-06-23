@@ -1,4 +1,4 @@
-"""Local readiness smoke check. Usage: make smoke"""
+"""로컬 실행 준비 상태 빠른 점검. 사용: make smoke"""
 from pathlib import Path
 
 from korean_maritime_law_rag.config import load_settings

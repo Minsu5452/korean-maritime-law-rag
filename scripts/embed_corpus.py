@@ -1,6 +1,6 @@
-"""Encode article embeddings to an NPZ cache.
+"""조문 임베딩을 NPZ 캐시로 미리 계산해 저장한다.
 
-Usage:
+사용:
   MLR_EMBEDDING_DEVICE=cuda uv run python scripts/embed_corpus.py
 """
 import json
