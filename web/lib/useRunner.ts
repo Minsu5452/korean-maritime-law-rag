@@ -139,6 +139,7 @@ export function useRunner() {
           controller.signal,
         );
         if (id !== runId.current) return;
+        // final은 위 SSE 콜백에서만 대입돼 TS 흐름 분석이 닿지 않으므로 단언이 필요하다.
         if (final) await reveal((final as AgentResponse).answer, id);
         if (id === runId.current) setState((s) => ({ ...s, phase: "done" }));
       } catch (err) {

@@ -32,7 +32,13 @@ export async function streamQuery(
       const frame = buffer.slice(0, sep);
       buffer = buffer.slice(sep + 2);
       const dataLine = frame.split("\n").find((l) => l.startsWith("data:"));
-      if (dataLine) onEvent(JSON.parse(dataLine.slice(5).trim()) as StreamEvent);
+      if (dataLine) {
+        try {
+          onEvent(JSON.parse(dataLine.slice(5).trim()) as StreamEvent);
+        } catch {
+          // 깨진 프레임 하나로 스트림 전체를 끊지 않는다.
+        }
+      }
     }
   }
 }

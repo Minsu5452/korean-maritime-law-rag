@@ -59,7 +59,14 @@ export function QueryBar({ mode, traces, running, question, activeId, onDemo, on
             key={t.id}
             type="button"
             disabled={running}
-            onClick={() => (demo ? onDemo(t) : (setText(t.question), onLive(t.question)))}
+            onClick={() => {
+              if (demo) {
+                onDemo(t);
+                return;
+              }
+              setText(t.question);
+              onLive(t.question);
+            }}
             className={`rounded-md border px-3 py-2 text-[15px] transition disabled:opacity-50 ${
               activeId === t.id
                 ? "border-brand bg-brand-soft font-bold text-brand-strong"
