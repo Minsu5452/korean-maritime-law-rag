@@ -25,7 +25,7 @@ law.go.kr OPEN API
 | 에이전트 | `agent/graph.py`, `agent/generator.py`, `agent/verify.py` | 질문 분류, 검색, 근거 평가, 생성, 인용 검증 |
 | 서빙 | `serving/app.py` | health/readiness, 질의 API, SSE 스트리밍 |
 | 프론트엔드 | `web/` (Next.js) | 답변 근거 도출 과정 시각화, 근거 조문·시행일·원문, 녹화/라이브 모드 |
-| 평가 | `evaluation/`, `scripts/evaluate*.py`, `scripts/significance.py` | 검색 전략, 생성 품질, 지연 시간 평가 |
+| 평가 | `evaluation/`, `scripts/evaluate*.py`, `scripts/significance.py` | 검색 전략, 생성 품질, 응답 시간 평가 |
 
 ## 데이터와 코퍼스
 
@@ -93,7 +93,7 @@ law.go.kr OPEN API
 
 그래프 전략은 먼저 텍스트 기반 후보를 얻고, 해당 후보의 인접 조문을 Neo4j에서 확장합니다.
 이 확장 후보는 별도 ranking으로 보고 RRF에 합산합니다.
-질문에 `「법령명」 제N조` 형태가 들어 있으면 `parse_citation()`으로 먼저 잡아 graph 검색에서 해당 조문을 최상위로 고정합니다(RRF 점수에 +1.0). 로컬 인덱스에 그 조문이 없고 실시간 조회가 켜져 있으면 law.go.kr를 한 번 조회해 보강합니다.
+질문에 `「법령명」 제N조` 형태가 들어 있으면 `parse_citation()`으로 먼저 잡아 graph 검색에서 해당 조문을 최상위로 고정합니다(현재 최고 RRF 점수보다 1.0 높게 부여). 로컬 인덱스에 그 조문이 없고 실시간 조회가 켜져 있으면 law.go.kr를 한 번 조회해 보강합니다.
 
 reranker는 기본값이 꺼져 있습니다.
 `BAAI/bge-reranker-v2-m3` cross-encoder를 사용할 수 있지만, 로컬 실행 비용과 GPU 의존성이 있어 선택 기능으로 둡니다.
@@ -136,7 +136,7 @@ Langfuse는 선택 기능이며, 키나 패키지가 없으면 관측성 없이 
 `MLR_LANGFUSE_ENABLED=true`를 사용합니다. 개발용 public/secret key는 `.env.example`과
 `docker-compose.yml`의 초기화 값에 맞춰 두었습니다.
 
-검색 결과가 로컬 인덱스에 없을 때 law.go.kr를 즉시 조회하는 실시간 조회도 선택 기능입니다.
+검색 결과가 로컬 인덱스에 없을 때 law.go.kr를 질의 시점에 조회하는 실시간 조회도 선택 기능입니다.
 `MLR_ENABLE_LAW_API_FALLBACK=true`와 `MLR_LAW_OC`가 모두 있어야 하며, 네트워크와 외부 API 상태에 의존합니다.
 
 ## 평가
@@ -151,7 +151,7 @@ Langfuse는 선택 기능이며, 키나 패키지가 없으면 관측성 없이 
 | `scripts/validate_gold.py` | 골드셋 구조 검증 |
 | `scripts/significance.py` | 전략별 hit@1, Wilson CI, McNemar 비교 |
 | `scripts/ablation_embeddings.py` | 임베더·검색전략·reranker 비교 |
-| `scripts/evaluate_all.py` | 에이전트 분류, 인용, 거절, 근거성, 지연 평가 |
+| `scripts/evaluate_all.py` | 에이전트 분류, 인용, 거절, 근거성, 응답 시간 평가 |
 | `scripts/ragas_score.py` | 격리 환경에서 RAGAS 지표 계산 |
 
 평가 결과는 `reports/`에 저장합니다.
