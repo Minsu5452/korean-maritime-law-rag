@@ -43,7 +43,7 @@ class LawApiClient:
         resp = self.client.get(f"{BASE}/{endpoint}", params={"OC": self.oc, "type": "JSON", **params})
         resp.raise_for_status()
         if resp.headers.get("content-type", "").startswith("text/html"):
-            raise ValueError(f"law.go.kr이 HTML을 반환 — OC 키({self.oc!r}) 등록 여부를 확인하세요")
+            raise ValueError("law.go.kr이 HTML을 반환 — OC 키 등록 여부를 확인하세요")
         return resp.json()
 
     def search_law(self, name: str) -> dict:

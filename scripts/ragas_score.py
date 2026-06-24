@@ -1,7 +1,7 @@
 """격리 venv에서 reports/ragas_rows.json을 읽어 RAGAS 지표를 계산한다.
 
 ragas 0.2가 에이전트 측 langchain 스택과 충돌해 별도 venv에서 실행한다(프로젝트 import 없음).
-사용: OPENAI_API_KEY=... /root/ragasenv/bin/python scripts/ragas_score.py [judge_model]
+사용: 격리한 venv에서 `OPENAI_API_KEY=... python scripts/ragas_score.py [judge_model]`
 """
 import json
 import sys
