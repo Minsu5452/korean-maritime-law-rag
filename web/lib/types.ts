@@ -53,7 +53,7 @@ export type StreamEvent = TraceEvent | FinalEvent;
 export interface DemoTrace {
   id: string;
   question: string;
-  tag: string; // 카드 칩에 보일 짧은 설명 (예: "멀티홉 · 그래프 확장")
+  tag: string; // 카드 칩에 보일 짧은 설명 (예: "여러 조문 연계 · 그래프 확장")
   events: TraceEvent[];
   response: AgentResponse;
 }

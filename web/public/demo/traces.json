@@ -2,7 +2,7 @@
   {
     "id": "fishing-radio",
     "question": "어선에 무선설비를 갖추지 않고 항행하면 어떤 벌칙이 적용되나요?",
-    "tag": "멀티홉 · 그래프 확장",
+    "tag": "여러 조문 연계 · 그래프 확장",
     "events": [
       {
         "step": "classify",
@@ -77,7 +77,7 @@
   {
     "id": "build-inspection",
     "question": "선박을 건조할 때 받아야 하는 건조검사를 받지 않으면 어떤 처벌을 받나요?",
-    "tag": "멀티홉 · 위임 추적",
+    "tag": "여러 조문 연계 · 위임 추적",
     "events": [
       {
         "step": "classify",

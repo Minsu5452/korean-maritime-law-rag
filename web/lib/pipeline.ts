@@ -16,7 +16,7 @@ export const PIPELINE: PipelineNode[] = [
 export const TYPE_LABEL: Record<string, string> = {
   single: "단일 조문",
   definition: "정의",
-  multihop: "멀티홉",
+  multihop: "여러 조문 연계",
   unanswerable: "근거 없음",
 };
 

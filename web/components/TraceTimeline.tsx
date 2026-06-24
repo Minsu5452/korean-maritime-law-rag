@@ -28,12 +28,12 @@ export function TraceTimeline({ seen, activeStep, response, running }: Props) {
     activeStep === key ? "active" : seenSet.has(key) ? "done" : "pending";
 
   return (
-    <section className="rounded-lg border border-line bg-surface p-6">
-      <div className="mb-5 flex items-center gap-2">
+    <section>
+      <div className="mb-4 flex items-center gap-2">
         <span className="text-sm font-bold text-ink-soft">답변 근거 도출 과정</span>
         {running && (
           <span className="ml-auto inline-flex items-center gap-1.5 text-xs font-medium text-brand">
-            <span className="h-1.5 w-1.5 animate-ping rounded-full bg-brand" />
+            <span className="h-1.5 w-1.5 rounded-full bg-brand" />
             실행 중
           </span>
         )}
@@ -49,9 +49,9 @@ export function TraceTimeline({ seen, activeStep, response, running }: Props) {
               <div className="flex w-0 flex-1 flex-col items-center text-center">
                 <div
                   className={[
-                    "relative flex h-10 w-10 items-center justify-center rounded-lg border text-[16px] font-bold transition-colors duration-300",
+                    "relative flex h-9 w-9 items-center justify-center rounded-md border-[1.5px] text-[15px] font-extrabold transition-colors duration-300",
                     st === "active"
-                      ? "animate-step-ring border-brand bg-brand-soft text-brand"
+                      ? "animate-step-ring border-brand bg-surface text-brand"
                       : st === "done"
                         ? "border-brand bg-brand text-white"
                         : "border-line bg-surface text-muted",
@@ -65,15 +65,15 @@ export function TraceTimeline({ seen, activeStep, response, running }: Props) {
                   )}
                 </div>
                 <div
-                  className={`mt-2 text-sm font-bold ${st === "pending" ? "text-muted" : "text-ink"}`}
+                  className={`mt-2 text-[13px] font-bold ${st === "pending" ? "text-muted" : "text-ink"}`}
                 >
                   {node.label}
                 </div>
-                <div className="mt-0.5 text-xs leading-tight text-muted">{node.sub}</div>
+                <div className="mt-0.5 text-[11px] leading-tight text-muted">{node.sub}</div>
               </div>
 
               {i < PIPELINE.length - 1 && (
-                <div className="mt-5 h-0.5 w-6 shrink-0 sm:w-10">
+                <div className="mt-[18px] h-0.5 w-6 shrink-0 sm:w-10">
                   <div
                     className={`h-full w-full rounded ${connectorFilled ? "bg-brand" : "bg-line"}`}
                   />
@@ -85,15 +85,15 @@ export function TraceTimeline({ seen, activeStep, response, running }: Props) {
 
         {refused && (
           <>
-            <div className="mt-5 h-0.5 w-6 shrink-0 sm:w-10">
+            <div className="mt-[18px] h-0.5 w-6 shrink-0 sm:w-10">
               <div className="h-full w-full rounded bg-danger/40" />
             </div>
             <div className="flex w-0 flex-1 flex-col items-center text-center">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-danger/40 bg-[#fdf1ee] text-danger">
+              <div className="flex h-9 w-9 items-center justify-center rounded-md border-[1.5px] border-danger/40 bg-[#fdf1ee] text-danger">
                 <IconRefuse className="h-5 w-5" />
               </div>
-              <div className="mt-2 text-sm font-bold text-danger">거절</div>
-              <div className="mt-0.5 text-xs leading-tight text-muted">근거 없음</div>
+              <div className="mt-2 text-[13px] font-bold text-danger">거절</div>
+              <div className="mt-0.5 text-[11px] leading-tight text-muted">근거 없음</div>
             </div>
           </>
         )}
