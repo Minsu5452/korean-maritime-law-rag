@@ -1,5 +1,5 @@
 """사용: OPENAI_API_KEY=<키> uv run python scripts/ask.py "질문" [--top-k 5]
-사전 조건: make up && make index (v1 인덱스 필요)"""
+사전 조건: make up && make index (인덱스 필요)"""
 import argparse
 from pathlib import Path
 
