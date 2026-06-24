@@ -26,7 +26,7 @@ GET https://www.law.go.kr/DRF/lawService.do
 
 ---
 
-## 2. 목록 API 실제 필드명 표 (lawSearch)
+## 2. 목록 API 응답 필드 (lawSearch)
 
 응답 루트 키: `LawSearch`
 
@@ -69,7 +69,7 @@ GET https://www.law.go.kr/DRF/lawService.do
 
 ---
 
-## 3. 본문 API 실제 필드명 표 (lawService)
+## 3. 본문 API 응답 필드 (lawService)
 
 응답 루트 키: `법령`
 
@@ -142,9 +142,9 @@ GET https://www.law.go.kr/DRF/lawService.do
 
 ---
 
-## 4. Quirk 목록
+## 4. 응답 변종 목록
 
-### Q1: `항`/`호`/`목` 단일 요소 객체화 (critical)
+### Q1: `항`/`호`/`목` 단일 요소 객체화 (중요)
 
 XML→JSON 변환 시 배열 원소가 1개이면 **배열이 아닌 단일 dict**으로 내려온다.
 
