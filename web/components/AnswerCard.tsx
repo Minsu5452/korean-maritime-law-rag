@@ -12,8 +12,8 @@ export function AnswerCard({ state }: { state: RunState }) {
         <p className="font-bold">라이브 백엔드에 연결하지 못했습니다.</p>
         <p className="mt-1">{error}</p>
         <p className="mt-2 text-[13px] text-danger/80">
-          로컬에서 <span className="font-mono">uvicorn</span> 백엔드를 띄웠는지, 녹화 데모로
-          전환했는지 확인하세요.
+          로컬 FastAPI 백엔드(localhost:8000)가 실행 중인지, 아니면 녹화 데모로 전환했는지
+          확인하세요.
         </p>
       </div>
     );
