@@ -1,8 +1,9 @@
 "use client";
 import { useState } from "react";
+import { formatEnforceDate, lawGoKrUrl } from "@/lib/constants";
 import { LAW_TYPE_TONE } from "@/lib/pipeline";
 import type { CitedArticle } from "@/lib/types";
-import { IconChevron, IconDoc } from "./icons";
+import { IconChevron, IconDoc, IconExternal } from "./icons";
 
 export function EvidenceList({ items }: { items: CitedArticle[] }) {
   if (items.length === 0) return null;
@@ -28,6 +29,7 @@ function EvidenceCard({ article }: { article: CitedArticle }) {
   const [open, setOpen] = useState(false);
   const tone = LAW_TYPE_TONE[article.law_type] ?? "bg-slate-50 text-slate-600 border-slate-200";
   const collapsible = article.text.length > 150;
+  const enforceDate = formatEnforceDate(article.enforce_date);
 
   return (
     <div className="group rounded-xl border border-line bg-surface p-4 transition-shadow hover:shadow-[0_10px_24px_-18px_rgba(15,23,42,0.4)]">
@@ -68,8 +70,17 @@ function EvidenceCard({ article }: { article: CitedArticle }) {
         </>
       )}
 
-      <div className="mt-2.5 border-t border-line pt-2 font-mono text-[11px] text-muted">
-        {article.doc_id}
+      <div className="mt-2.5 flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-line pt-2 text-[11px] text-muted">
+        {enforceDate && <span>{enforceDate} 시행</span>}
+        <a
+          href={lawGoKrUrl(article.law_name)}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-0.5 font-medium text-brand hover:text-brand-strong"
+        >
+          국가법령정보센터 원문
+          <IconExternal className="h-3 w-3" />
+        </a>
       </div>
     </div>
   );

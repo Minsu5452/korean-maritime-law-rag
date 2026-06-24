@@ -13,6 +13,7 @@ export interface CitedArticle {
   law_type: string;
   title: string;
   text: string;
+  enforce_date?: string | null; // 시행일 YYYYMMDD
 }
 
 export interface AgentResponse {

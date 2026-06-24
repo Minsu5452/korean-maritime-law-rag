@@ -36,6 +36,7 @@ class CitedArticle(BaseModel):
     law_type: str = "법률"
     title: str = ""
     text: str = ""
+    enforce_date: str | None = None  # 시행일 YYYYMMDD
 
 
 class AgentResponse(BaseModel):

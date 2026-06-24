@@ -251,7 +251,8 @@ class Agent:
         meta = getattr(self._retriever, "meta", {})
         evidence = [
             CitedArticle(doc_id=doc_id, law_name=a.law_name, article_no=a.article_no,
-                         law_type=a.law_type, title=a.title, text=a.text)
+                         law_type=a.law_type, title=a.title, text=a.text,
+                         enforce_date=a.enforce_date)
             for doc_id in citations
             if (a := meta.get(doc_id)) is not None
         ]
