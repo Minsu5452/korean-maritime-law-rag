@@ -13,8 +13,8 @@ export function Header({ mode, onMode }: { mode: Mode; onMode: (m: Mode) => void
             <IconGraph className="h-5 w-5" />
           </span>
           <div className="leading-tight">
-            <div className="text-sm font-semibold text-ink">해양 법령 RAG</div>
-            <div className="text-[11px] text-muted">근거 조문 인용 데모</div>
+            <div className="text-sm font-semibold text-ink">해양법령 길잡이</div>
+            <div className="text-[11px] text-muted">해양경찰청 현장 실무 지원</div>
           </div>
         </div>
         <div className="ml-auto flex items-center gap-2">

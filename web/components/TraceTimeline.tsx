@@ -30,8 +30,7 @@ export function TraceTimeline({ seen, activeStep, response, running }: Props) {
   return (
     <section className="rounded-2xl border border-line bg-surface/80 p-5 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_12px_28px_-20px_rgba(15,23,42,0.25)]">
       <div className="mb-4 flex items-center gap-2">
-        <span className="text-sm font-semibold text-ink">에이전트 진행</span>
-        <span className="text-xs text-muted">LangGraph 노드</span>
+        <span className="text-sm font-semibold text-ink">답변 근거 도출 과정</span>
         {running && (
           <span className="ml-auto inline-flex items-center gap-1.5 text-xs font-medium text-brand">
             <span className="h-1.5 w-1.5 animate-ping rounded-full bg-brand" />
