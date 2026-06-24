@@ -79,14 +79,6 @@ class SentenceTransformerEmbedder:
         return self._encode([self._query_prefix + t for t in texts])
 
 
-class KureEmbedder(SentenceTransformerEmbedder):
-    """KURE-v1 기본값 하위호환 래퍼."""
-
-    def __init__(self, model_name: str = "nlpai-lab/KURE-v1",
-                 device: str = "cpu", batch_size: int = 32):
-        super().__init__(model_name, device=device, batch_size=batch_size)
-
-
 class OpenAIEmbedder:
     """OpenAI 임베딩 API(text-embedding-3-large 등). client 주입 시 네트워크 없이 테스트 가능."""
 

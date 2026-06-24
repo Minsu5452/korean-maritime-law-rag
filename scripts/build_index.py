@@ -8,7 +8,7 @@ from neo4j import GraphDatabase
 from korean_maritime_law_rag.config import load_settings
 from korean_maritime_law_rag.corpus import load_corpus
 from korean_maritime_law_rag.indexing.embedding_cache import load_embedding_cache
-from korean_maritime_law_rag.indexing.embedder import KureEmbedder
+from korean_maritime_law_rag.indexing.embedder_factory import make_embedder
 from korean_maritime_law_rag.indexing.graph import GraphStore
 from korean_maritime_law_rag.indexing.lexical import Bm25Index
 from korean_maritime_law_rag.indexing.vector import VectorIndex, make_qdrant_client
@@ -40,7 +40,7 @@ def main() -> None:
         embedder = _PrecomputedEmbedder(dim=len(vectors[0]) if vectors else 0)
         print(f"임베딩 캐시 사용: {s.embedding_cache}")
     else:
-        embedder = KureEmbedder(s.embedding_model, device=s.embedding_device)
+        embedder = make_embedder(s.embedding_model, device=s.embedding_device)
     vec = VectorIndex(embedder, make_qdrant_client(s.qdrant_url))
     vec.build(articles, vectors=vectors)
 

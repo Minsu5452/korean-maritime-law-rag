@@ -1,7 +1,7 @@
 """조문 임베딩을 NPZ 캐시로 미리 계산해 저장한다.
 
 사용:
-  MLR_EMBEDDING_DEVICE=cuda uv run python scripts/embed_corpus.py
+  uv run python scripts/embed_corpus.py   # 디바이스: MLR_EMBEDDING_DEVICE=cpu|mps|cuda
 """
 import json
 import time
@@ -11,7 +11,7 @@ from pathlib import Path
 from korean_maritime_law_rag.config import load_settings
 from korean_maritime_law_rag.corpus import load_corpus
 from korean_maritime_law_rag.indexing.embedding_cache import EmbeddingCache
-from korean_maritime_law_rag.indexing.embedder import KureEmbedder
+from korean_maritime_law_rag.indexing.embedder_factory import make_embedder
 
 
 def main() -> None:
@@ -21,7 +21,7 @@ def main() -> None:
 
     articles = load_corpus(settings.cache_dir)
     texts = [f"{article.article_no} {article.title}\n{article.text}" for article in articles]
-    embedder = KureEmbedder(settings.embedding_model, device=settings.embedding_device)
+    embedder = make_embedder(settings.embedding_model, device=settings.embedding_device)
 
     started = time.perf_counter()
     vectors = embedder.encode(texts)
