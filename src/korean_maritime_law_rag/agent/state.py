@@ -27,9 +27,21 @@ class VerifiedAnswer(BaseModel):
     low_confidence: bool = False
 
 
+class CitedArticle(BaseModel):
+    """답변이 인용한 조문의 표시용 메타데이터(doc_id를 사람이 읽는 형태로 해소)."""
+
+    doc_id: str
+    law_name: str
+    article_no: str
+    law_type: str = "법률"
+    title: str = ""
+    text: str = ""
+
+
 class AgentResponse(BaseModel):
     answer: str
     citations: list[str] = Field(default_factory=list)
+    evidence: list[CitedArticle] = Field(default_factory=list)
     invalid_citations: list[str] = Field(default_factory=list)
     query_type: QueryType
     strategy: str

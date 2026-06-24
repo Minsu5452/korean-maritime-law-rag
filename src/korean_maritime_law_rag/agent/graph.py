@@ -8,7 +8,12 @@ from korean_maritime_law_rag.agent.classifier import classify
 from korean_maritime_law_rag.agent.evidence import grade_evidence
 from korean_maritime_law_rag.agent.generator import generate
 from korean_maritime_law_rag.agent.router import route
-from korean_maritime_law_rag.agent.state import AgentResponse, GeneratedAnswer, QueryType
+from korean_maritime_law_rag.agent.state import (
+    AgentResponse,
+    CitedArticle,
+    GeneratedAnswer,
+    QueryType,
+)
 from korean_maritime_law_rag.agent.verify import verify_citations
 from korean_maritime_law_rag.models import Article
 from korean_maritime_law_rag.retrieval.citation import parse_citation
@@ -242,9 +247,18 @@ class Agent:
         yield {"step": "final", "response": self._to_response(final).model_dump()}
 
     def _to_response(self, final: dict) -> AgentResponse:
+        citations = final.get("citations", [])
+        meta = getattr(self._retriever, "meta", {})
+        evidence = [
+            CitedArticle(doc_id=doc_id, law_name=a.law_name, article_no=a.article_no,
+                         law_type=a.law_type, title=a.title, text=a.text)
+            for doc_id in citations
+            if (a := meta.get(doc_id)) is not None
+        ]
         return AgentResponse(
             answer=final["answer"],
-            citations=final.get("citations", []),
+            citations=citations,
+            evidence=evidence,
             invalid_citations=final.get("invalid_citations", []),
             query_type=final["query_type"],
             strategy=final.get("strategy", "none"),

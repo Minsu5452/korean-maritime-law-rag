@@ -1,8 +1,10 @@
 import json
+import os
 from collections.abc import Iterator
 from pathlib import Path
 
 from fastapi import Depends, FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
@@ -14,6 +16,18 @@ from korean_maritime_law_rag.llm import get_chat_model
 from korean_maritime_law_rag.observability import build_langfuse_callbacks
 
 app = FastAPI(title="korean-maritime-law-rag")
+
+# 로컬 프론트엔드(web/)에서 호출할 수 있도록 CORS 허용 출처를 연다.
+# 기본값은 Next.js 개발 서버. 배포 시 MLR_CORS_ORIGINS로 덮어쓴다(쉼표 구분).
+_cors_origins = os.environ.get(
+    "MLR_CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000"
+).split(",")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[o.strip() for o in _cors_origins if o.strip()],
+    allow_methods=["GET", "POST"],
+    allow_headers=["*"],
+)
 _agent: Agent | None = None
 
 

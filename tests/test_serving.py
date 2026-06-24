@@ -56,3 +56,9 @@ def test_query_stream_emits_sse_events():
         assert "100::제83조" in r.text
     finally:
         app.dependency_overrides.clear()
+
+
+def test_cors_allows_local_frontend_origin():
+    client = TestClient(app)
+    r = client.get("/health", headers={"Origin": "http://localhost:3000"})
+    assert r.headers.get("access-control-allow-origin") == "http://localhost:3000"

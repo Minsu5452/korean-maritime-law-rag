@@ -192,3 +192,24 @@ def test_invalid_citation_triggers_one_regeneration():
     assert resp.invalid_citations == ["999::없음"]
     assert resp.citations == ["100::제83조"]
     assert resp.low_confidence is False
+
+
+def test_response_resolves_citations_to_evidence():
+    retriever = StubRetriever(_corpus())
+    model = FakeChatModel(structured_outputs=[
+        QueryTypeResult(query_type="multihop"),
+        EvidenceGrade(sufficient=True, reason="처벌 조문 검색됨"),
+        GeneratedAnswer(answer="3년 이하의 징역.", citations=["100::제83조", "999::없음"]),
+    ])
+    resp = Agent(retriever, model, top_k=5).answer("처벌은?")
+    # 유효 인용만 메타데이터로 해소되고, 환각 인용(999)은 evidence에서도 빠진다.
+    assert [e.doc_id for e in resp.evidence] == ["100::제83조"]
+    ev = resp.evidence[0]
+    assert (ev.law_name, ev.article_no, ev.title) == ("테스트선박법", "제83조", "벌칙")
+
+
+def test_refused_response_has_no_evidence():
+    retriever = StubRetriever(_corpus())
+    model = FakeChatModel(structured_outputs=[QueryTypeResult(query_type="unanswerable")])
+    resp = Agent(retriever, model, top_k=5).answer("소득세 계산법은?")
+    assert resp.evidence == []
