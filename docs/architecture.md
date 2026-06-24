@@ -13,6 +13,7 @@ law.go.kr OPEN API
   -> Retriever(RRF, optional reranker)
   -> LangGraph agent
   -> FastAPI
+  -> Next.js 웹 데모 (web/)
 ```
 
 | 단계 | 주요 파일 | 책임 |
@@ -23,6 +24,7 @@ law.go.kr OPEN API
 | 검색 | `retrieval/retriever.py`, `retrieval/fusion.py`, `retrieval/reranker.py` | 전략별 검색, RRF 병합, 선택적 reranking |
 | 에이전트 | `agent/graph.py`, `agent/generator.py`, `agent/verify.py` | 질문 분류, 검색, 근거 평가, 생성, 인용 검증 |
 | 서빙 | `serving/app.py` | health/readiness, 질의 API, SSE 스트리밍 |
+| 프론트엔드 | `web/` (Next.js) | 에이전트 트레이스 시각화, 근거 조문 인용 카드, 녹화/라이브 모드 |
 | 평가 | `evaluation/`, `scripts/evaluate*.py`, `scripts/significance.py` | 검색 전략, 생성 품질, 지연 시간 평가 |
 
 ## 데이터와 코퍼스
@@ -117,6 +119,7 @@ classify
 - `POST /query/stream`
 
 `/query/stream`은 LangGraph 노드 진행을 SSE로 흘려보냅니다.
+`web/`의 Next.js 프론트엔드는 이 스트림을 그대로 시각화합니다. 분류→검색→근거 평가→생성→검증 진행과 근거 조문 인용을 보여주며, 실제 실행을 녹화해 키 없이 재생하는 데모 모드와 로컬 백엔드에 직접 질의하는 라이브 모드를 둡니다. 데모 데이터는 `scripts/capture_demo_traces.py`로 생성합니다.
 Langfuse는 선택 기능이며, 키나 패키지가 없으면 관측성 없이 실행됩니다.
 로컬에서 추적을 보려면 `make up`으로 Langfuse 컨테이너를 띄운 뒤 `uv sync --extra obs`와
 `MLR_LANGFUSE_ENABLED=true`를 사용합니다. 개발용 public/secret key는 `.env.example`과

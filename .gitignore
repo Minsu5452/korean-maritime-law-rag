@@ -7,3 +7,4 @@ reports/*.tmp
 .env
 data/*.pkl
 data/embeddings/
+.omc/
