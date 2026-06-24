@@ -38,10 +38,11 @@ npm run build    # 정적 사이트를 out/에 생성 (next.config.ts의 output:
 ## 구성
 
 ```text
-app/         레이아웃·페이지(클라이언트 오케스트레이션)
-components/  Header · QueryBar · TraceTimeline · AnswerCard · EvidenceList 등
-lib/         타입, SSE 클라이언트, 데모 재생/라이브 실행 훅
-public/demo/ 녹화된 질의 트레이스(traces.json)
+web/
+├── app/         레이아웃·페이지(클라이언트 오케스트레이션)
+├── components/  Header · QueryBar · TraceTimeline · AnswerCard · EvidenceList 등
+├── lib/         타입, SSE 클라이언트, 데모 재생/라이브 실행 훅
+└── public/demo/ 녹화된 질의 트레이스(traces.json)
 ```
 
 데모 데이터를 다시 만들려면 백엔드 인덱스를 띄운 뒤 저장소 루트에서:

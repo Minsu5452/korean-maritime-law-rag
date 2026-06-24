@@ -152,20 +152,21 @@ OPENAI_API_KEY=... uv run python scripts/measure_cost.py
 ## 프로젝트 구조
 
 ```text
-src/korean_maritime_law_rag/
-  collectors/      law.go.kr 수집기
-  parsing/         조문 파서와 인용 관계 추출
-  indexing/        BM25, Qdrant, Neo4j 인덱스
-  retrieval/       검색 전략, RRF, 리랭커, 실시간 조회
-  agent/           LangGraph 기반 질의 응답 흐름
-  evaluation/      검색·생성 평가 유틸리티
-  serving/         FastAPI 앱
-
-scripts/           수집, 인덱싱, 검색, 평가 실행 스크립트
-reports/           재현 가능한 평가 결과
-tests/             단위 테스트와 골드 질의셋
-configs/           실행 설정과 수집 대상 법령 목록
-web/               해양경찰청 현장 실무를 가정한 Next.js 웹 데모
+korean-maritime-law-rag/
+├── src/korean_maritime_law_rag/
+│   ├── collectors/ law.go.kr 수집기
+│   ├── parsing/    조문 파서와 인용 관계 추출
+│   ├── indexing/   BM25, Qdrant, Neo4j 인덱스
+│   ├── retrieval/  검색 전략, RRF, 리랭커, 실시간 조회
+│   ├── agent/      LangGraph 기반 질의 응답 흐름
+│   ├── evaluation/ 검색·생성 평가 유틸리티
+│   └── serving/    FastAPI 앱
+├── web/            해양경찰청 현장 실무를 가정한 Next.js 웹 데모
+├── scripts/        수집, 인덱싱, 검색, 평가 실행 스크립트
+├── reports/        재현 가능한 평가 결과
+├── tests/          단위 테스트와 골드 질의셋
+├── configs/        실행 설정과 수집 대상 법령 목록
+└── docs/           아키텍처 문서와 다이어그램
 ```
 
 ## 구현하면서 신경 쓴 점
