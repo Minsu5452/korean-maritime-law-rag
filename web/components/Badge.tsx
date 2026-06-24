@@ -1,16 +1,17 @@
 import type { ReactNode } from "react";
 
+// KRDS 배지: 4px 라운드, 단색/옅은블루/회색. 강조는 정부 블루 하나로.
 const TONES = {
-  slate: "bg-slate-100 text-slate-600 border-slate-200",
-  blue: "bg-blue-50 text-blue-700 border-blue-200",
-  indigo: "bg-indigo-50 text-indigo-700 border-indigo-200",
-  emerald: "bg-emerald-50 text-emerald-700 border-emerald-200",
-  rose: "bg-rose-50 text-rose-700 border-rose-200",
-  amber: "bg-amber-50 text-amber-700 border-amber-200",
+  brand: "bg-brand text-white font-bold",
+  brandSoft: "border border-brand bg-brand-soft text-brand-strong font-bold",
+  meta: "bg-fill text-ink-soft",
+  danger: "bg-danger text-white font-bold",
+  warning: "bg-warning text-ink font-bold",
+  success: "bg-success text-white font-bold",
 } as const;
 
 export function Badge({
-  tone = "slate",
+  tone = "meta",
   children,
   className = "",
 }: {
@@ -20,7 +21,7 @@ export function Badge({
 }) {
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium ${TONES[tone]} ${className}`}
+      className={`inline-flex items-center gap-1 rounded px-2.5 py-1 text-[13px] ${TONES[tone]} ${className}`}
     >
       {children}
     </span>

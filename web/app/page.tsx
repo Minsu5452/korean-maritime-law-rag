@@ -53,9 +53,9 @@ export default function Home() {
   return (
     <div className="flex min-h-full flex-col">
       <Header mode={mode} onMode={onMode} />
-      <main className="mx-auto w-full max-w-3xl flex-1 px-5 pb-10 pt-9 sm:pt-12">
+      <main className="mx-auto w-full max-w-[1040px] flex-1 px-5 pb-4 pt-8">
         <Hero />
-        <div className="mt-7">
+        <div className="mt-6">
           <QueryBar
             mode={mode}
             traces={traces}
@@ -79,8 +79,8 @@ export default function Home() {
             {state.response && <EvidenceList items={state.response.evidence} />}
           </div>
         ) : (
-          <p className="mt-10 text-center text-sm text-muted">
-            예시 질의를 선택하면 에이전트의 검색·생성 과정을 단계별로 보여줍니다.
+          <p className="mt-8 text-sm text-muted">
+            예시 질의를 선택하면 답변 근거 도출 과정을 단계별로 보여줍니다.
           </p>
         )}
       </main>

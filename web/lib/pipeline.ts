@@ -1,26 +1,16 @@
-import type { ComponentType } from "react";
-import {
-  IconClassify,
-  IconGenerate,
-  IconGrade,
-  IconRetrieve,
-  IconVerify,
-} from "@/components/icons";
-
 export interface PipelineNode {
   key: string;
   label: string;
   sub: string;
-  Icon: ComponentType<{ className?: string }>;
 }
 
 // 답변 근거 도출 과정(사용자 관점 라벨). 내부적으로는 LangGraph 노드와 1:1 대응.
 export const PIPELINE: PipelineNode[] = [
-  { key: "classify", label: "질문 분석", sub: "유형 판별", Icon: IconClassify },
-  { key: "retrieve", label: "조문 검색", sub: "관련 조문 탐색", Icon: IconRetrieve },
-  { key: "grade_evidence", label: "근거 확인", sub: "충분성 판단", Icon: IconGrade },
-  { key: "generate", label: "답변 작성", sub: "근거 기반 생성", Icon: IconGenerate },
-  { key: "verify", label: "인용 검증", sub: "인용 정확성 확인", Icon: IconVerify },
+  { key: "classify", label: "질문 분석", sub: "유형 판별" },
+  { key: "retrieve", label: "조문 검색", sub: "관련 조문 탐색" },
+  { key: "grade_evidence", label: "근거 확인", sub: "충분성 판단" },
+  { key: "generate", label: "답변 작성", sub: "근거 기반 생성" },
+  { key: "verify", label: "인용 검증", sub: "인용 정확성 확인" },
 ];
 
 export const TYPE_LABEL: Record<string, string> = {
@@ -37,8 +27,5 @@ export const STRATEGY_LABEL: Record<string, string> = {
   none: "없음",
 };
 
-export const LAW_TYPE_TONE: Record<string, string> = {
-  법률: "bg-blue-50 text-blue-700 border-blue-200",
-  시행령: "bg-indigo-50 text-indigo-700 border-indigo-200",
-  시행규칙: "bg-violet-50 text-violet-700 border-violet-200",
-};
+// 법령 종류 칩(KRDS 회색 톤). 종류 텍스트 자체로 구분되므로 색은 절제.
+export const LAW_TYPE_TONE = "border-line bg-fill text-ink-soft";
