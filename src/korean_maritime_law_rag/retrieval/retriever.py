@@ -70,7 +70,7 @@ class Retriever:
 
         핵심: 확장 후보가 vec/bm25 랭킹에도 있으면 RRF가 점수를 가산 스택하므로,
         '텍스트 신호 약함 + 그래프 연결'인 멀티홉 정답이 경계를 넘을 수 있다
-        (곱셈형 decay는 구조적으로 불가능했음 — architecture.md 설계 이터레이션 참조).
+        (곱셈형 decay는 구조적으로 불가능 — architecture.md 설계 이터레이션 참조).
         """
         best: dict[str, tuple[int, float]] = {}  # doc_id -> (hops, seed_score)
         for seed, doc_id, hops in self.graph.expand(seeds, hops=self.graph_hops):

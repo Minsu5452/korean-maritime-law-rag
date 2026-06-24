@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 
 class LiveLawFallback:
-    """로컬 코퍼스에 없는 조문을 law.go.kr에서 즉시 가져온다(네트워크 의존, 캐시 미스 전용)."""
+    """로컬 코퍼스에 없는 조문을 law.go.kr에서 질의 시점에 가져온다(네트워크 의존, 캐시 미스 전용)."""
 
     def __init__(self, client: LawApiClient):
         self._client = client
@@ -20,7 +20,11 @@ class LiveLawFallback:
         except LawNotCurrentError:
             logger.info("실시간 법령 조회: '%s' 현행 없음", law_name)
             return None
-        raw = self._client.fetch_law(entry["법령일련번호"])
+        mst = entry.get("법령일련번호")
+        if not mst:
+            logger.info("실시간 법령 조회: '%s' 일련번호 없음", law_name)
+            return None
+        raw = self._client.fetch_law(mst)
         for art in parse_law(raw):
             if art.article_no == article_no:
                 return art

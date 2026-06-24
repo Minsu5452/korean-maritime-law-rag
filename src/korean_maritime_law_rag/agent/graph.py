@@ -1,3 +1,4 @@
+import logging
 from collections.abc import Iterator
 from typing import TypedDict
 
@@ -17,6 +18,8 @@ from korean_maritime_law_rag.agent.state import (
 from korean_maritime_law_rag.agent.verify import verify_citations
 from korean_maritime_law_rag.models import Article
 from korean_maritime_law_rag.retrieval.citation import parse_citation
+
+logger = logging.getLogger(__name__)
 
 _REFUSAL = "제공된 해양 법령에서 근거를 찾지 못했습니다."
 
@@ -125,8 +128,13 @@ class Agent:
                     if r.doc_id in self._retriever.meta]
         used_live = state.get("used_live_fallback", False)
         # 로컬 인덱스에 없고 특정 조문을 지목한 질문이면 law.go.kr를 한 번 조회한다.
+        # 실시간 조회는 선택 기능이라, 네트워크·응답 변형으로 실패해도 보강만 생략하고 진행한다.
         if not articles and self._live_fallback is not None and (cite := parse_citation(search_query)):
-            live = self._live_fallback.fetch_article(*cite)
+            try:
+                live = self._live_fallback.fetch_article(*cite)
+            except Exception as exc:  # noqa: BLE001 — 실시간 조회 실패는 보강 생략으로 흡수
+                logger.warning("실시간 조회 실패(%s %s): %s", cite[0], cite[1], exc)
+                live = None
             if live is not None:
                 articles = [live]
                 used_live = True
