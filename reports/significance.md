@@ -1,6 +1,10 @@
 # 검색 전략 통계 요약
 
-정답 조문이 있는 질문 n=154 {'multihop': 117, 'single': 29, 'definition': 8}
+이 표는 `scripts/significance.py`로 생성한 마지막 저장 결과입니다. hit@1은 검색 인덱스 빌드에 따라
+문항 단위로 1건 정도 달라질 수 있어, 임베더 비교표(`reports/embedder_ablation.md`)와 정확히 맞추려면
+두 리포트를 같은 인덱스에서 함께 재생성해야 합니다(`make up && make index`).
+
+정답 조문이 있는 질문은 n=154입니다(multihop 117, single 29, definition 8).
 
 | 전략/라우팅 | 유형 | hit@1 | 95% Wilson CI |
 |---|---|---|---|

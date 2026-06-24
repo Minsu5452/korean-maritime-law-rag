@@ -74,16 +74,19 @@ def main() -> None:
     (out / "latency.json").write_text(json.dumps(latm, ensure_ascii=False, indent=2), encoding="utf-8")
 
     md = ["# 에이전트 평가", "",
-          f"평가대상 에이전트 `{s.llm_model}` (reasoning={s.llm_reasoning_effort or '기본'}, "
-          f"rerank={s.rerank}) · 근거성 평가 모델 `{s.judge_model}` · n={len(gold)}", "",
+          "이 파일은 `scripts/evaluate_all.py`로 생성한 마지막 저장 결과입니다.",
+          "현재 기본 모델과 실행 설정은 `.env.example`과 `src/korean_maritime_law_rag/config.py`를 기준으로 확인하고,",
+          "모델이나 검색 설정을 바꾼 뒤에는 `OPENAI_API_KEY=... uv run python scripts/evaluate_all.py`로 다시 생성해야 합니다.", "",
           "| 지표 | 값 |", "|---|---|",
           f"| 분류 정확도 | {am['classification_accuracy']:.3f} |",
-          f"| 인용 정확도(answerable) | {am['citation_hit_rate']:.3f} |",
-          f"| 거절 정확도(unanswerable) | {am['refusal_accuracy']:.3f} |",
-          f"| oracle 라우팅 hit@1 | {am['oracle_routing_hit1']:.3f} |",
+          f"| 답변 가능 질문의 인용 정확도 | {am['citation_hit_rate']:.3f} |",
+          f"| 근거 없는 질문의 거절 정확도 | {am['refusal_accuracy']:.3f} |",
+          f"| 정답 유형 기준 라우팅 hit@1 | {am['oracle_routing_hit1']:.3f} |",
           f"| 모델 라우팅 hit@1 | {am['llm_routing_hit1']:.3f} |",
           f"| 근거성 | {fm['faithfulness_rate']:.3f} ({fm['grounded']}/{fm['n']}) |",
-          f"| 지연 p50 / p95 (ms) | {latm['p50']:.0f} / {latm['p95']:.0f} |", ""]
+          f"| 응답 시간 p50 / p95 (ms) | {latm['p50']:.0f} / {latm['p95']:.0f} |", "",
+          "모델 라우팅 hit@1은 답변 가능 문항에서 모델이 고른 전략으로 rank-1 정답을 맞힌 비율입니다.",
+          "모델이 답변 가능 문항을 거절한 경우에는 hybrid로 검색해 검색 품질만 따로 계산했습니다.", ""]
     (out / "agent_eval.md").write_text("\n".join(md), encoding="utf-8")
     print("\n".join(md))
 

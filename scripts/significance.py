@@ -26,8 +26,14 @@ def main() -> None:
     H = {st: {g.id: hit(g, st) for g in answerable} for st in ("vector", "hybrid", "graph")}
     oracle = {g.id: hit(g, route(g.type)) for g in answerable}
 
+    counts = Counter(g.type for g in answerable)
+    order = {"multihop": 0, "single": 1, "definition": 2}
+    type_summary = ", ".join(f"{t} {c}" for t, c in sorted(counts.items(), key=lambda kv: order.get(kv[0], 9)))
     lines = ["# 검색 전략 통계 요약", "",
-             f"정답 조문이 있는 질문 n={len(answerable)} {dict(Counter(g.type for g in answerable))}", "",
+             "이 표는 `scripts/significance.py`로 생성한 마지막 저장 결과입니다. hit@1은 검색 인덱스 빌드에 따라",
+             "문항 단위로 1건 정도 달라질 수 있어, 임베더 비교표(`reports/embedder_ablation.md`)와 정확히 맞추려면",
+             "두 리포트를 같은 인덱스에서 함께 재생성해야 합니다(`make up && make index`).", "",
+             f"정답 조문이 있는 질문은 n={len(answerable)}입니다({type_summary}).", "",
              "| 전략/라우팅 | 유형 | hit@1 | 95% Wilson CI |", "|---|---|---|---|"]
 
     def add_rows(name: str, hits: dict) -> None:

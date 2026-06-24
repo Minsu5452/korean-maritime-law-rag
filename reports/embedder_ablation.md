@@ -14,7 +14,7 @@
 | intfloat/multilingual-e5-large | hybrid | 0.500 | 0.844 | 0.903 | 0.646 |
 | intfloat/multilingual-e5-large | graph | 0.273 | 0.870 | 0.929 | 0.525 |
 
-**vector hit@1 기준 모델: nlpai-lab/KURE-v1**
+**vector hit@1이 가장 높은 모델: nlpai-lab/KURE-v1**
 
 ## nlpai-lab/KURE-v1 reranker on/off
 

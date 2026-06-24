@@ -75,7 +75,7 @@ def main() -> None:
         if not results:
             raise SystemExit("모든 임베더 평가 실패")
         winner = pick_winner(results, metric="hit_rate@1", strategy="vector")
-        logger.info("vector hit@1 기준 모델: %s", winner)
+        logger.info("vector hit@1이 가장 높은 모델: %s", winner)
 
         # vector hit@1 기준 모델로 reranker on/off 비교
         vindex = _get_or_build_index(s, winner, articles)
@@ -92,7 +92,7 @@ def main() -> None:
     table = format_embedder_ablation(results, STRATEGIES)
     out = [f"# 임베더·검색 전략 비교 ({len(articles)} 조문, gold {len(gold)})", "",
            f"## 임베더 {len(results)}종 × 전략 (reranker off)", "", table, "",
-           f"**vector hit@1 기준 모델: {winner}**", "",
+           f"**vector hit@1이 가장 높은 모델: {winner}**", "",
            f"## {winner} reranker on/off", ""]
     for label, rep in rerank_results.items():
         out += [f"### {label}", "", to_markdown(rep), ""]
