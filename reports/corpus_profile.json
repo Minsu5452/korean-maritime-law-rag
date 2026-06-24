@@ -1,8 +1,8 @@
 {
   "law_count": 105,
   "article_count": 7506,
-  "edge_count": 16269,
-  "cites": 11013,
+  "edge_count": 16281,
+  "cites": 11025,
   "applies": 394,
   "implements": 4862,
   "unresolved_external_refs": 1902,

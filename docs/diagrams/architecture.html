@@ -72,7 +72,7 @@
         <div class="sep">→</div>
         <div class="node"><div class="n">조문 · 별표 파서</div><div class="sub">article_parser · crossref</div></div>
         <div class="sep">→</div>
-        <div class="node grow"><div class="n">Article corpus</div><div class="sub">7,506 조문·별표 · 16,269 엣지 · 시행일(as-of) 메타</div></div>
+        <div class="node grow"><div class="n">Article corpus</div><div class="sub">7,506 조문·별표 · 법령명·조문번호·시행일·법령종류 메타</div></div>
       </div>
     </div>
     <div class="conn">▼ 인덱싱</div>
@@ -82,14 +82,14 @@
       <div class="body">
         <div class="store s-bm25"><div class="n"><span class="bdot" style="background:#ea580c"></span>BM25</div><div class="sub">Kiwi 토크나이저 · 어휘 검색</div></div>
         <div class="store s-vec"><div class="n"><span class="bdot" style="background:#2563eb"></span>Qdrant</div><div class="sub">KURE-v1 임베딩 · 벡터 검색</div></div>
-        <div class="store s-graph"><div class="n"><span class="bdot" style="background:#7c3aed"></span>Neo4j</div><div class="sub">CITES · APPLIES · IMPLEMENTS 인용·위임 그래프</div></div>
+        <div class="store s-graph"><div class="n"><span class="bdot" style="background:#7c3aed"></span>Neo4j</div><div class="sub">CITES · APPLIES · IMPLEMENTS 인용·위임 그래프 · 16,281 엣지</div></div>
       </div>
     </div>
     <div class="conn">▼</div>
 
     <div class="layer">
       <div class="rail"><div class="lbl">RETRIEVE</div><div class="ko">검색</div></div>
-      <div class="body"><div class="node grow"><div class="n">Retriever · RRF 융합 → cross-encoder reranker</div><div class="sub">vector · hybrid · graph(인용·위임 확장 · 정확 조문 pinning) · 로컬 미스 시 law.go.kr 실시간 조회</div></div></div>
+      <div class="body"><div class="node grow"><div class="n">Retriever · RRF 융합 <span style="color:#94a3b8;font-weight:700">(+ 선택: cross-encoder 리랭킹)</span></div><div class="sub">vector · hybrid · graph(인용·위임 확장 · 정확 조문 +1.0 고정) · 로컬 미스 시 law.go.kr 실시간 조회(선택)</div></div></div>
     </div>
     <div class="conn">▼</div>
 
@@ -97,7 +97,7 @@
       <div class="rail"><div class="lbl">AGENT</div><div class="ko">에이전트</div></div>
       <div class="agent-body">
         <div class="agent-flow">LangGraph · classify → retrieve → grade_evidence → generate → verify</div>
-        <div class="agent-sub">retrieve 단계서 전략 라우팅(vector/hybrid/graph) · LangChain with_structured_output · 부족 시 재검색 · 오인용 시 재생성 · 근거 없으면 거절 · Langfuse 추적</div>
+        <div class="agent-sub">유형별 전략 라우팅(단일→hybrid · 정의→vector · 멀티홉→graph) · 부족 시 ↺ 재검색 · 오인용 시 ↺ 재생성 · 근거 없으면 거절 · Langfuse 추적(선택)</div>
       </div>
       <div class="link"><div class="ar">⇄</div>LLM 호출</div>
       <div class="llm"><div class="k">LLM · LangChain</div><div class="n">OpenAI · 모델 설정 가능</div><div class="sub">langchain-openai · init_chat_model</div></div>
