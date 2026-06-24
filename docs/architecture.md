@@ -24,7 +24,7 @@ law.go.kr OPEN API
 | 검색 | `retrieval/retriever.py`, `retrieval/fusion.py`, `retrieval/reranker.py` | 전략별 검색, RRF 병합, 선택적 reranking |
 | 에이전트 | `agent/graph.py`, `agent/generator.py`, `agent/verify.py` | 질문 분류, 검색, 근거 평가, 생성, 인용 검증 |
 | 서빙 | `serving/app.py` | health/readiness, 질의 API, SSE 스트리밍 |
-| 프론트엔드 | `web/` (Next.js) | 에이전트 트레이스 시각화, 근거 조문 인용 카드, 녹화/라이브 모드 |
+| 프론트엔드 | `web/` (Next.js) | 답변 근거 도출 과정 시각화, 근거 조문·시행일·원문, 녹화/라이브 모드 |
 | 평가 | `evaluation/`, `scripts/evaluate*.py`, `scripts/significance.py` | 검색 전략, 생성 품질, 지연 시간 평가 |
 
 ## 데이터와 코퍼스
