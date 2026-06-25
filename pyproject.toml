@@ -4,8 +4,8 @@ version = "0.1.0"
 description = "해양 법령 근거 인용 RAG"
 readme = "README.md"
 license = "Apache-2.0"
-authors = [{ name = "Minsu5452" }]
-requires-python = ">=3.11,<3.13"
+authors = [{ name = "Minsu Kang", email = "daro980722@gmail.com" }]
+requires-python = ">=3.12,<3.13"
 dependencies = [
     "httpx>=0.27",
     "tenacity>=8.2",
