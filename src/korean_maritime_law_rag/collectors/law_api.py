@@ -49,7 +49,7 @@ class LawApiClient:
     def search_law(self, name: str) -> dict:
         data = self._get("lawSearch.do", target="law", query=name)
         entries = data.get("LawSearch", {}).get("law", [])
-        if isinstance(entries, dict):  # 단일 결과 quirk
+        if isinstance(entries, dict):  # 단일 결과는 dict(응답 변형)
             entries = [entries]
         current = [e for e in entries if e.get("현행연혁코드") == "현행"]
         exact = [e for e in current if e.get("법령명한글", "").strip() == name]

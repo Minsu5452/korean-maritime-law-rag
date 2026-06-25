@@ -19,7 +19,7 @@ def _format_context(articles: list[Article]) -> str:
 
 
 def generate(query: str, articles: list[Article], model: BaseChatModel) -> GeneratedAnswer:
-    # citations를 검색된 doc_id로 제약(Literal enum) → LLM의 doc_id 절단·날조를 구조적으로 차단.
+    # citations를 검색된 doc_id로 제약(Literal 타입) → LLM의 doc_id 절단·날조를 구조적으로 차단.
     # verify는 방어선으로 유지(가짜 LLM의 잘못된 인용 제거를 테스트가 계속 검증).
     doc_ids = [a.doc_id for a in articles]
     schema: type[BaseModel] = GeneratedAnswer

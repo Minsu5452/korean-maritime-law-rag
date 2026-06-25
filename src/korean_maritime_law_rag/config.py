@@ -24,9 +24,9 @@ class Settings(BaseSettings):
     top_k: int = 10
     rrf_k: int = 60
     graph_hops: int = 1
-    as_of: str | None = None  # YYYYMMDD 시점 현행 필터. None=오늘. 연혁 time-travel은 후순위
+    as_of: str | None = None  # YYYYMMDD 시점 현행 필터. None=오늘. 연혁 시점 복원은 후순위
     enable_law_api_fallback: bool = False  # 로컬 미스 시 law.go.kr 실시간 조회(OC 키 필요)
-    langfuse_enabled: bool = False  # 관측성. 키는 env MLR_LANGFUSE_*로 주입
+    langfuse_enabled: bool = False  # 모니터링. 키는 env MLR_LANGFUSE_*로 주입
     langfuse_host: str = "http://localhost:3000"
     langfuse_public_key: str = ""
     langfuse_secret_key: str = ""

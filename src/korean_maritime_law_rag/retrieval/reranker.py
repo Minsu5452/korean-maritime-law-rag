@@ -29,7 +29,7 @@ class CrossEncoderReranker:
         self._model: Any = model
 
     def rerank(self, query, candidates, meta, top_k):
-        # 상위 shortlist만 재정렬(표준·메모리·속도). 그래프 확장이 meta(as-of 필터) 밖의
+        # 상위 후보만 재정렬(표준·메모리·속도). 그래프 확장이 meta(as-of 필터) 밖의
         # doc_id를 올릴 수 있으므로 meta에 있는 후보만 점수화한다(KeyError 방지).
         pool = [(d, s) for d, s in candidates[: max(30, top_k)] if d in meta]
         if not pool:

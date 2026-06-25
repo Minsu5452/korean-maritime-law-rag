@@ -1,6 +1,6 @@
 """답변 faithfulness(groundedness) 평가.
 
-generator는 인용 doc_id를 검색 결과 enum으로 구조적으로 제약하지만, 그것만으로는
+generator는 인용 doc_id를 검색 결과에 있는 것으로만 구조적으로 제약하지만, 그것만으로는
 답변 '본문'이 해당 조문 내용을 정확히 말하는지는 보장하지 못한다. 여기서는 평가 모델이
 답변의 사실 주장이 인용 조문 텍스트로 뒷받침되는지를 판정해 그 공백을 측정한다.
 평가 모델은 BaseChatModel.with_structured_output을 쓰므로 CI에서 FakeChatModel로 결정적 테스트가 된다.

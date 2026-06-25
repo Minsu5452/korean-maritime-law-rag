@@ -10,8 +10,8 @@ services:
     ports: ["6333:6333"]
     volumes: ["qdrant_data:/qdrant/storage"]
 
-  # 로컬 관측성. INIT_* 환경변수로 개발용 프로젝트를 자동 생성한다.
-  # 자가 호스트 로컬 자격증명이라 외부 비밀이 아니다(평가의 선택적 부가기능).
+  # 로컬 모니터링. INIT_* 환경변수로 개발용 프로젝트를 자동 생성한다.
+  # 자체 호스팅 로컬 자격증명이라 외부 비밀이 아니다(평가의 선택 기능).
   langfuse-db:
     image: postgres:16-alpine
     environment:

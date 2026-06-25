@@ -120,7 +120,7 @@ class Agent:
 
     def _retrieve(self, state: _State) -> dict:
         search_query = state.get("active_query", state["query"])
-        # 「법」 제N조처럼 정확 조문을 지목하면 분류와 무관하게 graph(정확 인용 pinning)로 라우팅.
+        # 「법」 제N조처럼 정확 조문을 지목하면 분류와 무관하게 graph(정확 인용 고정)로 라우팅.
         # 결정적 정규식으로 충분히 잡히는 신호라, 이를 위해 별도 LLM 분류 클래스를 두지 않는다.
         strategy = "graph" if parse_citation(search_query) else route(state["query_type"])
         results = self._retriever.search(search_query, strategy, self._top_k)

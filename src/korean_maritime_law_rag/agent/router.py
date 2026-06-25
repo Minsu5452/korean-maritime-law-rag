@@ -5,7 +5,7 @@ from korean_maritime_law_rag.agent.state import QueryType
 #   definition vector (정의 조문은 의미 매칭이 가장 강함)
 #   multihop   graph  (인용·위임 이웃 확장 — recall@10 최고; 리랭킹 결합 시 hit@1도 vector와 동급)
 # 「법」 제N조처럼 정확 조문을 지목하는 질의는 분류 대신 parse_citation 정규식으로
-# graph(정확 인용 pinning)에 라우팅한다(agent/graph.py). 그래서 여기 citation 유형은 없다.
+# graph(정확 인용 고정)에 라우팅한다(agent/graph.py). 그래서 여기에는 정확 인용 유형이 없다.
 _ROUTING: dict[str, str] = {
     "single": "hybrid",
     "definition": "vector",
