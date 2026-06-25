@@ -19,7 +19,7 @@
 - RRF 기반 검색 결과 병합과 선택형 cross-encoder 리랭커
 - LangGraph 기반 답변 흐름 구성: 질문 분류, 검색, 근거 평가, 재검색, 답변 생성, 인용 검증
 - FastAPI 질의 API와 SSE 스트리밍 API 제공
-- Langfuse 추적, 실시간 법령 조회(law.go.kr), 개정 감지와 증분 재색인은 선택 기능으로 분리
+- 선택 기능으로 분리: Langfuse 추적, 실시간 법령 조회(law.go.kr), 법령이 개정되면 바뀐 부분만 다시 색인
 - 해양경찰청 현장 실무를 가정한 Next.js 웹 데모(한국 정부 디자인 시스템 KRDS 기준): 답변 근거 도출 과정 시각화, 근거 조문·시행일·원문 링크 표시, 녹화 데모와 라이브 모드
 
 ## 아키텍처
@@ -90,7 +90,7 @@ OPENAI_API_KEY=... uv run uvicorn korean_maritime_law_rag.serving.app:app
 | 실시간 법령 조회(law.go.kr) | `MLR_ENABLE_LAW_API_FALLBACK=true`, `MLR_LAW_OC=...` |
 | 시행일 기준 필터 | `MLR_AS_OF=YYYYMMDD` |
 | 임베딩 캐시 생성 | `uv run python scripts/embed_corpus.py` |
-| 개정 감지와 증분 재색인 | `MLR_LAW_OC=... uv run python scripts/poll_amendments.py --reindex` |
+| 법령 개정 시 바뀐 부분만 재색인 | `MLR_LAW_OC=... uv run python scripts/poll_amendments.py --reindex` |
 
 로컬 Langfuse는 `make up`으로 함께 실행됩니다. 애플리케이션에서 추적을 보낼지는 `MLR_LANGFUSE_ENABLED` 값으로 결정합니다.
 
@@ -112,7 +112,7 @@ npm run dev   # http://localhost:3000
 
 코퍼스 규모:
 
-| 항목 | 값 |
+| 지표 | 수치 |
 |---|---:|
 | 법령 문서 | 105 |
 | 조문·별표 | 7,506 |
@@ -133,7 +133,7 @@ npm run dev   # http://localhost:3000
 
 답변 생성까지 포함한 전체 응답 시간과 질의당 비용입니다. 에이전트는 `gpt-4o-mini`로 동작하고, 생성 품질을 평가하는 모델만 `gpt-4o`로 분리했습니다.
 
-| 항목 | 값 |
+| 지표 | 수치 |
 |---|---:|
 | 전체 응답 시간 | p50 6.2초 · p95 12.5초 (골드셋 180문항) |
 | 질의당 입력·출력 토큰(평균) | 5,635 · 202 (답변 가능 문항 중 18건 실측) |
