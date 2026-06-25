@@ -1,4 +1,4 @@
-"""코퍼스 범위와 citation graph 규모 리포트를 생성한다."""
+"""코퍼스 범위와 인용 그래프 규모 리포트를 생성한다."""
 import json
 from collections import Counter
 from pathlib import Path
@@ -42,7 +42,7 @@ def main() -> None:
     md = (
         f"# 코퍼스 프로파일\n\n"
         "## 요약\n\n"
-        "| 지표 | 값 |\n"
+        "| 지표 | 수치 |\n"
         "|---|---:|\n"
         f"| 법령 문서 수 | {stats['law_count']} |\n"
         f"| 조문·별표 수 | {stats['article_count']} |\n"

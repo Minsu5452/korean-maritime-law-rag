@@ -90,7 +90,7 @@ def main() -> None:
         driver.close()
 
     table = format_embedder_ablation(results, STRATEGIES)
-    out = [f"# 임베더·검색 전략 비교 ({len(articles)} 조문, gold {len(gold)})", "",
+    out = [f"# 임베더·검색 전략 비교 (정답 조문 {len(gold)}문항)", "",
            f"## 임베더 {len(results)}종 × 전략 (리랭커 off)", "", table, "",
            f"**vector hit@1이 가장 높은 모델: {winner}**", "",
            f"## {winner} 리랭커 on/off", ""]

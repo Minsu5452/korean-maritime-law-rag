@@ -2,7 +2,7 @@
 
 ## 임베더 3종 × 전략 (리랭커 off)
 
-| 모델 | 전략 | hit_rate@1 | hit_rate@5 | recall@10 | mrr |
+| 모델 | 전략 | hit@1 | hit@5 | recall@10 | mrr |
 |---|---|---|---|---|---|
 | nlpai-lab/KURE-v1 | vector | 0.539 | 0.844 | 0.896 | 0.672 |
 | nlpai-lab/KURE-v1 | hybrid | 0.455 | 0.844 | 0.909 | 0.618 |
@@ -20,7 +20,7 @@
 
 ### rerank=off
 
-| 전략 | 유형 | hit_rate@1 | hit_rate@5 | recall@10 | mrr |
+| 전략 | 유형 | hit@1 | hit@5 | recall@10 | mrr |
 |---|---|---|---|---|---|
 | vector | overall | 0.539 | 0.844 | 0.896 | 0.672 |
 | vector | definition | 0.875 | 0.875 | 0.875 | 0.875 |
@@ -37,7 +37,7 @@
 
 ### rerank=on
 
-| 전략 | 유형 | hit_rate@1 | hit_rate@5 | recall@10 | mrr |
+| 전략 | 유형 | hit@1 | hit@5 | recall@10 | mrr |
 |---|---|---|---|---|---|
 | vector | overall | 0.734 | 0.948 | 0.961 | 0.827 |
 | vector | definition | 0.875 | 1.000 | 1.000 | 0.938 |

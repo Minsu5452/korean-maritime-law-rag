@@ -12,7 +12,7 @@ def pick_winner(results: dict[str, dict], metric: str = "hit_rate@1",
 def format_embedder_ablation(results: dict[str, dict], strategies: list[str]) -> str:
     """모델 × 전략 비교표(markdown). 각 셀은 overall 지표."""
     metrics = [m for m in _METRICS if _has_metric(results, m)]
-    lines = ["| 모델 | 전략 | " + " | ".join(metrics) + " |",
+    lines = ["| 모델 | 전략 | " + " | ".join(m.replace("hit_rate@", "hit@") for m in metrics) + " |",
              "|---|---|" + "---|" * len(metrics)]
     for model, report in results.items():
         for strategy in strategies:

@@ -70,7 +70,7 @@ def run_eval(retriever, gold: list[GoldItem], strategies: list[str], top_k: int 
 
 
 def to_markdown(report: dict) -> str:
-    lines = ["| 전략 | 유형 | " + " | ".join(METRICS) + " |",
+    lines = ["| 전략 | 유형 | " + " | ".join(m.replace("hit_rate@", "hit@") for m in METRICS) + " |",
              "|---|---|" + "---|" * len(METRICS)]
     for strategy, data in report.items():
         rows = [("overall", data["overall"])] + sorted(data["by_type"].items())

@@ -4,7 +4,7 @@
 현재 기본 모델과 실행 설정은 `.env.example`과 `src/korean_maritime_law_rag/config.py`를 기준으로 확인하고,
 모델이나 검색 설정을 바꾼 뒤에는 `OPENAI_API_KEY=... uv run python scripts/evaluate_all.py`로 다시 생성해야 합니다.
 
-| 지표 | 값 |
+| 지표 | 수치 |
 |---|---|
 | 분류 정확도 | 0.672 |
 | 답변 가능 질문의 인용 정확도 | 0.922 |

@@ -30,7 +30,7 @@ def test_run_eval_computes_metrics_per_strategy_and_type():
 def test_to_markdown_renders_table():
     report = run_eval(StubRetriever(), GOLD, strategies=["graph"], top_k=10)
     md = to_markdown(report)
-    assert "| graph |" in md and "hit_rate@1" in md
+    assert "| graph |" in md and "hit@1" in md
 
 
 def test_gold_item_gold_uses_default_factory():

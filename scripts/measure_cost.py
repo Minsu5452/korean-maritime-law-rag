@@ -97,7 +97,7 @@ def _render_md(model: str, summary: dict) -> str:
         "실행해 측정했습니다.\n"
         "비용은 OpenAI 공개 단가(입력 $0.15 / 출력 $0.60 per 1M tokens) 기준 추정이며, "
         "단가가 바뀌면 `scripts/measure_cost.py`의 `PRICE`를 갱신해 재계산합니다.\n\n"
-        "| 항목 | 값 |\n|---|---:|\n"
+        "| 지표 | 수치 |\n|---|---:|\n"
         f"| 측정 문항 | {summary['n']} |\n"
         f"| 질의당 입력 토큰(평균) | {summary['mean_input']:.0f} |\n"
         f"| 질의당 출력 토큰(평균) | {summary['mean_output']:.0f} |\n"

@@ -21,4 +21,4 @@ def test_pick_winner_returns_best_model_for_metric():
 def test_format_embedder_ablation_lists_all_models():
     md = format_embedder_ablation(RESULTS, strategies=["vector", "graph"])
     assert "KURE-v1" in md and "BGE-M3" in md and "e5-large" in md
-    assert "hit_rate@1" in md
+    assert "hit@1" in md

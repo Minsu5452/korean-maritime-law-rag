@@ -35,7 +35,7 @@ out = Path("reports")
 (out / "ragas_eval.json").write_text(
     json.dumps({"metrics": metrics, "judge": judge, "n": len(rows)}, ensure_ascii=False, indent=2),
     encoding="utf-8")
-lines = [f"# RAGAS 평가 (judge={judge}, n={len(rows)})", "", "| 지표 | 값 |", "|---|---|"]
+lines = [f"# RAGAS 평가 (judge={judge}, n={len(rows)})", "", "| 지표 | 수치 |", "|---|---|"]
 lines += [f"| {k} | {v:.3f} |" for k, v in metrics.items()]
 (out / "ragas_eval.md").write_text("\n".join(lines), encoding="utf-8")
 print("\n".join(lines))
