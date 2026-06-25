@@ -1,6 +1,6 @@
 # 임베더·검색 전략 비교 (정답 조문 154문항)
 
-## 임베더 3종 × 전략 (reranker off)
+## 임베더 3종 × 전략 (리랭커 off)
 
 | 모델 | 전략 | hit_rate@1 | hit_rate@5 | recall@10 | mrr |
 |---|---|---|---|---|---|
@@ -16,7 +16,7 @@
 
 **vector hit@1이 가장 높은 모델: nlpai-lab/KURE-v1**
 
-## nlpai-lab/KURE-v1 reranker on/off
+## nlpai-lab/KURE-v1 리랭커 on/off
 
 ### rerank=off
 

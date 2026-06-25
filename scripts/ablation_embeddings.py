@@ -1,4 +1,4 @@
-"""임베더와 검색 전략 조합을 비교하고 reranker 효과를 측정한다.
+"""임베더와 검색 전략 조합을 비교하고 리랭커 효과를 측정한다.
 
 사용: OPENAI_API_KEY=... python scripts/ablation_embeddings.py
 출력: reports/embedder_ablation.md, reports/embedder_ablation.json
@@ -77,7 +77,7 @@ def main() -> None:
         winner = pick_winner(results, metric="hit_rate@1", strategy="vector")
         logger.info("vector hit@1이 가장 높은 모델: %s", winner)
 
-        # vector hit@1 기준 모델로 reranker on/off 비교
+        # vector hit@1 기준 모델로 리랭커 on/off 비교
         vindex = _get_or_build_index(s, winner, articles)
         rerank_results = {}
         for label, rr in [("rerank=off", NoopReranker()),
@@ -91,9 +91,9 @@ def main() -> None:
 
     table = format_embedder_ablation(results, STRATEGIES)
     out = [f"# 임베더·검색 전략 비교 ({len(articles)} 조문, gold {len(gold)})", "",
-           f"## 임베더 {len(results)}종 × 전략 (reranker off)", "", table, "",
+           f"## 임베더 {len(results)}종 × 전략 (리랭커 off)", "", table, "",
            f"**vector hit@1이 가장 높은 모델: {winner}**", "",
-           f"## {winner} reranker on/off", ""]
+           f"## {winner} 리랭커 on/off", ""]
     for label, rep in rerank_results.items():
         out += [f"### {label}", "", to_markdown(rep), ""]
     Path("reports/embedder_ablation.md").write_text("\n".join(out), encoding="utf-8")
