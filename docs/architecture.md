@@ -21,10 +21,10 @@ law.go.kr OPEN API
 | 수집 | `collectors/law_api.py`, `scripts/collect.py` | 현행 법령 검색, 본문 다운로드, raw JSON 캐시 저장 |
 | 파싱 | `parsing/article_parser.py`, `parsing/crossref.py` | 조문·별표 정규화, 인용·준용·위임 관계 추출 |
 | 색인 | `indexing/lexical.py`, `indexing/vector.py`, `indexing/graph.py` | BM25, Qdrant, Neo4j 인덱스 구축 |
-| 검색 | `retrieval/retriever.py`, `retrieval/fusion.py`, `retrieval/reranker.py` | 전략별 검색, RRF 병합, 선택적 reranking |
+| 검색 | `retrieval/retriever.py`, `retrieval/fusion.py`, `retrieval/reranker.py` | 전략별 검색, RRF 병합, 선택형 리랭킹 |
 | 에이전트 | `agent/graph.py`, `agent/generator.py`, `agent/verify.py` | 질문 분류, 검색, 근거 평가, 생성, 인용 검증 |
 | 서빙 | `serving/app.py` | health/readiness, 질의 API, SSE 스트리밍 |
-| 프론트엔드 | `web/` (Next.js) | 답변 근거 도출 과정 시각화, 근거 조문·시행일·원문, 녹화/라이브 모드 |
+| 프론트엔드 | `web/` (Next.js) | 답변 근거 도출 과정 시각화, 근거 조문·시행일·원문, 녹화 데모와 라이브 모드 |
 | 평가 | `evaluation/`, `scripts/evaluate*.py`, `scripts/significance.py` | 검색 전략, 생성 품질, 응답 시간 평가 |
 
 ## 데이터와 코퍼스
@@ -92,10 +92,10 @@ law.go.kr OPEN API
 | `「법령명」 제N조` 형태 | graph | 분류를 건너뛰고 정확 조문 고정 |
 
 그래프 전략은 먼저 텍스트 기반 후보를 얻고, 해당 후보의 인접 조문을 Neo4j에서 확장합니다.
-이 확장 후보는 별도 ranking으로 보고 RRF에 합산합니다.
-질문에 `「법령명」 제N조` 형태가 들어 있으면 `parse_citation()`으로 먼저 잡아 graph 검색에서 해당 조문을 최상위로 고정합니다(현재 최고 RRF 점수보다 1.0 높게 부여). 로컬 인덱스에 그 조문이 없고 실시간 조회가 켜져 있으면 law.go.kr를 한 번 조회해 보강합니다.
+이 확장 후보는 별도 순위로 보고 RRF에 합산합니다.
+질문에 `「법령명」 제N조` 형태가 들어 있으면 `parse_citation()`으로 먼저 잡아 graph 검색에서 해당 조문을 최상위로 고정합니다. 이때 현재 최고 RRF 점수보다 1.0 높은 점수를 부여합니다. 로컬 인덱스에 그 조문이 없고 실시간 조회가 켜져 있으면 law.go.kr를 한 번 조회해 보강합니다.
 
-reranker는 기본값이 꺼져 있습니다.
+리랭커는 기본값이 꺼져 있습니다.
 `BAAI/bge-reranker-v2-m3` cross-encoder를 사용할 수 있지만, 로컬 실행 비용과 GPU 의존성이 있어 선택 기능으로 둡니다.
 
 ## 에이전트
@@ -116,8 +116,8 @@ classify
 ```
 
 에이전트 상태에는 질문 유형, 선택된 검색 전략, 근거 충분성, 검색 횟수, 생성 횟수, 잘못된 인용 목록이 남습니다.
-`generator.py`는 검색된 `doc_id`만 citation enum으로 넘겨 생성 모델이 검색 결과 밖의 조문을 인용하지 못하도록 제한합니다.
-`verify.py`는 생성 결과의 citation이 실제 검색 결과에 포함되는지 한 번 더 확인합니다.
+`generator.py`는 검색된 `doc_id`만 인용 가능한 후보로 넘겨 생성 모델이 검색 결과 밖의 조문을 인용하지 못하도록 제한합니다.
+`verify.py`는 생성 결과의 인용이 실제 검색 결과에 포함되는지 한 번 더 확인합니다.
 거절은 두 경로입니다. classify에서 unanswerable로 분류되면 검색 없이 거절하고(`strategy=none`), grade_evidence 후에도 근거가 부족하면 저신뢰로 거절합니다(`low_confidence=true`). 재검색과 재생성은 각각 기본 2회로 제한합니다.
 
 ## 서빙과 관측성
@@ -130,7 +130,7 @@ classify
 - `POST /query/stream`
 
 `/query/stream`은 LangGraph 노드 진행을 SSE로 흘려보냅니다.
-`web/`의 Next.js 프론트엔드는 이 스트림을 그대로 시각화합니다. 분류→검색→근거 평가→생성→검증 진행과 근거 조문 인용을 보여주며, 실제 실행을 녹화해 키 없이 재생하는 데모 모드와 로컬 백엔드에 직접 질의하는 라이브 모드를 둡니다. 데모 데이터는 `scripts/capture_demo_traces.py`로 생성합니다.
+`web/`의 Next.js 프론트엔드는 이 스트림을 그대로 시각화합니다. 분류→검색→근거 평가→생성→검증 진행과 근거 조문 인용을 보여주며, 실제 실행을 녹화해 키 없이 재생하는 녹화 데모와 로컬 백엔드에 직접 질의하는 라이브 모드를 둡니다. 데모 데이터는 `scripts/capture_demo_traces.py`로 생성합니다.
 Langfuse는 선택 기능이며, 키나 패키지가 없으면 관측성 없이 실행됩니다.
 로컬에서 추적을 보려면 `make up`으로 Langfuse 컨테이너를 띄운 뒤 `uv sync --extra obs`와
 `MLR_LANGFUSE_ENABLED=true`를 사용합니다. 개발용 public/secret key는 `.env.example`과
@@ -150,12 +150,12 @@ Langfuse는 선택 기능이며, 키나 패키지가 없으면 관측성 없이 
 |---|---|
 | `scripts/validate_gold.py` | 골드셋 구조 검증 |
 | `scripts/significance.py` | 전략별 hit@1, Wilson CI, McNemar 비교 |
-| `scripts/ablation_embeddings.py` | 임베더·검색전략·reranker 비교 |
+| `scripts/ablation_embeddings.py` | 임베더·검색전략·리랭커 비교 |
 | `scripts/evaluate_all.py` | 에이전트 분류, 인용, 거절, 근거성, 응답 시간 평가 |
 | `scripts/ragas_score.py` | 격리 환경에서 RAGAS 지표 계산 |
 
 평가 결과는 `reports/`에 저장합니다.
-README에는 핵심 요약만 두고, 상세 수치와 표는 report 파일을 기준으로 확인합니다.
+README에는 핵심 요약만 두고, 상세 수치와 표는 리포트 파일을 기준으로 확인합니다.
 
 ## 운영 메모
 

@@ -1,4 +1,4 @@
-# law.go.kr Open API 스키마 노트
+# law.go.kr OPEN API 스키마 노트
 
 실제 API 응답으로 확인한 필드명과 파서가 다뤄야 하는 응답 변형을 기록합니다. 픽스처는 `tests/fixtures/lawsearch_sample.json`·`lawservice_sample.json`.
 
@@ -65,7 +65,7 @@ GET https://www.law.go.kr/DRF/lawService.do
 | `공동부령정보` | string | 공동 부령 정보                |                               |
 | `id`          | string | 결과 내 순번 (`"1"`, `"2"` …) |                               |
 
-> 수집·파싱 코드가 사용하는 6개 필드 모두 실응답에서 위 이름으로 확인했습니다.
+> 수집·파싱 코드가 사용하는 6개 필드 모두 실제 응답에서 위 이름으로 확인했습니다.
 
 ---
 
@@ -179,4 +179,4 @@ XML→JSON 변환 시 배열 원소가 1개이면 **배열이 아닌 단일 dict
 
 ## 5. 현재 사용 범위
 
-현재 코퍼스의 법령 목록은 `configs/laws.yaml`에 있으며, 법령별 조문 수와 citation graph 규모는 `reports/corpus_profile.md`에서 확인합니다. 이 문서는 API 응답 구조와 파서 구현상 주의점만 기록합니다.
+현재 코퍼스의 법령 목록은 `configs/laws.yaml`에 있으며, 법령별 조문 수와 인용 그래프 규모는 `reports/corpus_profile.md`에서 확인합니다. 이 문서는 API 응답 구조와 파서 구현상 주의점만 기록합니다.
