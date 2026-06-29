@@ -41,7 +41,7 @@
 | 영역 | 기술 |
 |---|---|
 | 언어·프레임워크 | ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white) ![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white) |
-| 검색 | ![BM25](https://img.shields.io/badge/BM25-rank--bm25-5B6770) ![Qdrant](https://img.shields.io/badge/Qdrant-DC244C?logo=qdrant&logoColor=white) ![Neo4j](https://img.shields.io/badge/Neo4j-018BFF?logo=neo4j&logoColor=white) ![RRF](https://img.shields.io/badge/RRF-fusion-5B6770) |
+| 검색 | ![BM25](https://img.shields.io/badge/BM25-rank--bm25-5B6770) ![Qdrant](https://img.shields.io/badge/Qdrant-DC244C?logo=qdrant&logoColor=white) ![Neo4j](https://img.shields.io/badge/Neo4j-018BFF?logo=neo4j&logoColor=white) |
 | 한국어 처리 | ![Kiwi](https://img.shields.io/badge/Kiwi-5B6770) ![KURE-v1](https://img.shields.io/badge/KURE--v1-embedding-5B6770) |
 | LLM 오케스트레이션 | ![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?logo=langchain&logoColor=white) ![LangGraph](https://img.shields.io/badge/LangGraph-1C3C3C) |
 | 모니터링 | ![Langfuse](https://img.shields.io/badge/Langfuse-555) |
