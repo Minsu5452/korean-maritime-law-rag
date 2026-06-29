@@ -1,25 +1,33 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
 @import "tailwindcss";
 
-/* KRDS(한국 정부 디자인 시스템) 토큰: 순백 배경 · 단일 정부 블루 · 1px 보더 · 절제된 모션. */
+/* 디자인 토큰: 흰 카드가 옅은 회색 배경 위에 떠 보이는 토스풍 시스템.
+   단일 브랜드 블루 · 부드러운 그림자 · 12~16px 라운드 · 차분한 모션. */
 @theme {
-  --color-ink: #1e2124; /* 본문 */
-  --color-ink-soft: #464c53; /* 보조 텍스트 */
-  --color-muted: #6d7882; /* 캡션 */
-  --color-line: #cdd1d5; /* 보더 */
-  --color-line-strong: #58616a; /* 입력 보더 */
-  --color-fill: #f4f5f6; /* 회색 표면 */
-  --color-surface: #ffffff; /* 페이지 배경 */
-  --color-brand: #256ef4; /* 정부 블루 */
-  --color-brand-strong: #0b50d0; /* 진한 블루(눌림·강조 텍스트) */
-  --color-brand-soft: #ecf2fe; /* 옅은 블루 표면 */
-  --color-success: #228738;
-  --color-danger: #de3412;
-  --color-warning: #ffb114;
+  --color-ink: #191f28; /* 본문 */
+  --color-ink-soft: #4e5968; /* 보조 텍스트 */
+  --color-muted: #8b95a1; /* 캡션 */
+  --color-line: #e5e8eb; /* 보더 */
+  --color-line-strong: #d1d6db; /* 입력 보더 */
+  --color-fill: #f2f4f6; /* 회색 표면 */
+  --color-canvas: #f9fafb; /* 페이지 배경 */
+  --color-surface: #ffffff; /* 카드 배경 */
+  --color-brand: #3182f6; /* 브랜드 블루 */
+  --color-brand-strong: #1b64da; /* 진한 블루(눌림·강조 텍스트) */
+  --color-brand-soft: #eaf2ff; /* 옅은 블루 표면 */
+  --color-brand-weak: #f4f8ff; /* 가장 옅은 블루 표면 */
+  --color-success: #15b86a;
+  --color-danger: #f04452;
+  --color-warning: #ff9500;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-pop: 0 8px 28px rgba(0, 0, 0, 0.1);
 }
 
 :root {
   color-scheme: light;
+  --ring-focus: 0 0 0 4px rgba(49, 130, 246, 0.18);
 }
 
 html {
@@ -30,21 +38,31 @@ body {
   font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
     "Apple SD Gothic Neo", "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
   color: var(--color-ink);
-  background: var(--color-surface);
-  font-size: 17px;
-  line-height: 1.5;
+  background: var(--color-canvas);
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: -0.003em;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .font-mono {
   font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 }
 
-/* 활성 단계 표시(절제된 링). reduce-motion이면 끔. */
-@keyframes step-ring {
-  0% { box-shadow: 0 0 0 0 rgba(37, 110, 244, 0.35); }
-  100% { box-shadow: 0 0 0 6px rgba(37, 110, 244, 0); }
+/* 키보드 포커스 링(토스풍 옅은 블루). 입력 필드는 컨테이너에서 따로 처리한다. */
+:where(a, button, [role="button"], summary):focus-visible {
+  outline: none;
+  box-shadow: var(--ring-focus);
 }
-.animate-step-ring { animation: step-ring 1.4s ease-out infinite; }
+
+/* 진행 중 단계의 숨쉬는 링. reduce-motion이면 끔. */
+@keyframes breathe {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(49, 130, 246, 0.18); }
+  50% { box-shadow: 0 0 0 9px rgba(49, 130, 246, 0.07); }
+}
+.animate-breathe { animation: breathe 2.4s ease-in-out infinite; }
 
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(6px); }
@@ -67,13 +85,13 @@ body {
 
 @keyframes shimmer { to { background-position: -200% 0; } }
 .shimmer {
-  background: linear-gradient(90deg, #eef0f3 0%, #f7f8fa 50%, #eef0f3 100%);
+  background: linear-gradient(90deg, #eef1f5 0%, #f7f8fa 50%, #eef1f5 100%);
   background-size: 200% 100%;
   animation: shimmer 1.3s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-step-ring,
+  .animate-breathe,
   .animate-fade-up,
   .shimmer,
   .caret::after {
@@ -82,5 +100,5 @@ body {
 }
 
 ::selection {
-  background: #ecf2fe;
+  background: #eaf2ff;
 }
