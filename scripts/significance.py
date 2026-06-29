@@ -46,7 +46,7 @@ def main() -> None:
 
     for st in ("vector", "hybrid", "graph"):
         add_rows(st, H[st])
-    add_rows("oracle 라우팅", oracle)
+    add_rows("정답 유형 기준 라우팅", oracle)
 
     mh = [g for g in answerable if g.type == "multihop"]
     lines += ["", f"## 멀티홉(n={len(mh)}) McNemar 비교"]
