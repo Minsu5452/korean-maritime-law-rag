@@ -2,13 +2,22 @@
 import { highlightCitations } from "@/lib/citations";
 import type { RunState } from "@/lib/useRunner";
 import { Badge } from "./Badge";
+import { IconClock, IconSparkle } from "./icons";
 
-export function AnswerCard({ state }: { state: RunState }) {
+export function AnswerCard({
+  state,
+  activeDocId,
+  onHoverCite,
+}: {
+  state: RunState;
+  activeDocId: string | null;
+  onHoverCite: (docId: string | null) => void;
+}) {
   const { phase, response, answer, error } = state;
 
   if (phase === "error") {
     return (
-      <div className="rounded-md border border-danger/40 bg-[#fdf1ee] p-5 text-[15px] text-danger">
+      <div className="rounded-2xl border border-danger/30 bg-[#fef2f2] p-5 text-[15px] text-danger">
         <p className="font-bold">라이브 백엔드에 연결하지 못했습니다.</p>
         <p className="mt-1">{error}</p>
         <p className="mt-2 text-[13px] text-danger/80">
@@ -28,21 +37,21 @@ export function AnswerCard({ state }: { state: RunState }) {
   const waiting = phase === "running" && answer.length === 0;
 
   return (
-    <div className="overflow-hidden rounded-md border border-line">
-      <div className="flex flex-wrap items-center gap-2 border-b border-line bg-fill px-4 py-2.5">
-        <span className="text-sm font-extrabold text-ink">답변</span>
-        {response && response.retrieval_attempts > 0 && (
-          <Badge tone="meta">검색 {response.retrieval_attempts}회</Badge>
-        )}
-        {response && !response.refused && response.generation_attempts > 0 && (
-          <Badge tone="meta">생성 {response.generation_attempts}회</Badge>
+    <div className="overflow-hidden rounded-2xl border border-line bg-surface shadow-card">
+      <div className="flex flex-wrap items-center gap-2 px-5 pt-4 sm:px-6">
+        <span className="text-[14px] font-bold text-ink">답변</span>
+        {response && !response.refused && (
+          <span className="inline-flex items-center gap-1.5 rounded-md bg-fill px-2 py-1 text-[11.5px] font-semibold text-ink-soft">
+            <IconSparkle className="h-3 w-3" />
+            근거 기반 생성
+          </span>
         )}
         {response?.refused && <Badge tone="danger">거절</Badge>}
         {response?.low_confidence && !response.refused && <Badge tone="warning">신뢰도 낮음</Badge>}
         {response?.used_live_fallback && <Badge tone="success">실시간 조회</Badge>}
       </div>
 
-      <div className="min-h-[2.5rem] px-4 py-4 text-[17px] leading-[1.8] text-ink sm:px-5">
+      <div className="min-h-[2.5rem] px-5 py-4 text-[16.5px] leading-[1.85] text-ink sm:px-6">
         {waiting ? (
           <div className="space-y-2.5">
             <div className="shimmer h-4 w-11/12 rounded" />
@@ -51,10 +60,23 @@ export function AnswerCard({ state }: { state: RunState }) {
           </div>
         ) : (
           <p className={response?.refused ? "text-ink-soft" : ""}>
-            <span className={streaming ? "caret" : ""}>{highlightCitations(answer)}</span>
+            <span className={streaming ? "caret" : ""}>
+              {highlightCitations(answer, {
+                evidence: response?.evidence ?? [],
+                activeDocId,
+                onHover: onHoverCite,
+              })}
+            </span>
           </p>
         )}
       </div>
+
+      {response && !response.refused && !waiting && (
+        <div className="flex items-center gap-2 border-t border-line px-5 py-3 text-[12.5px] text-muted sm:px-6">
+          <IconClock className="h-3.5 w-3.5 text-brand" />
+          근거 조문을 바탕으로 작성한 답변입니다 · 법적 효력 없음
+        </div>
+      )}
     </div>
   );
 }
