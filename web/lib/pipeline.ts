@@ -27,5 +27,5 @@ export const STRATEGY_LABEL: Record<string, string> = {
   none: "없음",
 };
 
-// 법령 종류 칩(KRDS 회색 톤). 종류 텍스트 자체로 구분되므로 색은 절제.
+// 법령 종류 칩(회색 톤). 종류 텍스트 자체로 구분되므로 색은 절제한다.
 export const LAW_TYPE_TONE = "border-line bg-fill text-ink-soft";

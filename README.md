@@ -8,7 +8,7 @@
 
 <img src="docs/diagrams/web-demo.png" alt="웹 데모 — 답변 근거 도출 과정과 근거 조문 인용" width="820">
 
-해양경찰청 현장 실무를 가정해 한국 정부 디자인 시스템(KRDS) 기준으로 만든 웹 데모입니다. **[데모 사이트 바로가기 →](https://korean-maritime-law-rag.vercel.app)** 실제 실행을 녹화해 키 없이 재생하며, 로컬에서는 라이브 모드로 백엔드에 직접 질의할 수 있습니다. (소스: [`web/`](web/))
+해양경찰청 현장 실무를 가정해 만든 웹 데모입니다. **[데모 사이트 바로가기 →](https://korean-maritime-law-rag.vercel.app)** 실제 실행을 녹화해 키 없이 재생하며, 로컬에서는 라이브 모드로 백엔드에 직접 질의할 수 있습니다. (소스: [`web/`](web/))
 
 ## 구현 범위
 
@@ -20,22 +20,11 @@
 - LangGraph 기반 답변 흐름 구성: 질문 분류, 검색, 근거 평가, 재검색, 답변 생성, 인용 검증
 - FastAPI 질의 API와 SSE 스트리밍 API 제공
 - 선택 기능으로 분리: Langfuse 추적, 실시간 법령 조회(law.go.kr), 법령이 개정되면 바뀐 부분만 다시 색인
-- 해양경찰청 현장 실무를 가정한 Next.js 웹 데모(한국 정부 디자인 시스템 KRDS 기준): 답변 근거 도출 과정 시각화, 근거 조문·시행일·원문 링크 표시, 녹화 데모와 라이브 모드
+- 해양경찰청 현장 실무를 가정한 Next.js 웹 데모: 답변 근거 도출 과정 시각화, 근거 조문·시행일·원문 링크 표시, 녹화 데모와 라이브 모드
 
 ## 아키텍처
 
 <img src="docs/diagrams/architecture.png" alt="해양 법령 RAG 아키텍처" width="900">
-
-```text
-law.go.kr
-  -> 원문 JSON 캐시
-  -> 조문 파서 / 인용 관계 파서
-  -> BM25 + Qdrant + Neo4j
-  -> RRF 병합 + 선택형 리랭커
-  -> LangGraph 답변 흐름
-  -> FastAPI
-  -> Next.js 웹 데모 (web/)
-```
 
 검색은 세 경로를 나눠 사용합니다.
 
