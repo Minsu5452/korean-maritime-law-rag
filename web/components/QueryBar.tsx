@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import type { DemoTrace, Mode } from "@/lib/types";
-import { IconArrow } from "./icons";
+import { IconArrow, IconSearch } from "./icons";
 
 interface Props {
   mode: Mode;
@@ -24,7 +24,8 @@ export function QueryBar({ mode, traces, running, question, activeId, onDemo, on
 
   return (
     <div>
-      <div className="flex gap-2">
+      <div className="group flex h-[60px] items-center gap-1 rounded-[14px] border border-line-strong bg-surface pl-4 pr-2 transition focus-within:border-brand focus-within:shadow-[0_0_0_4px_rgba(49,130,246,0.18)]">
+        <IconSearch className="h-[22px] w-[22px] shrink-0 text-muted transition group-focus-within:text-brand" />
         <input
           value={demo ? question : text}
           onChange={(e) => setText(e.target.value)}
@@ -37,14 +38,14 @@ export function QueryBar({ mode, traces, running, question, activeId, onDemo, on
               ? "예시 상황을 선택하세요"
               : "상황이나 조문을 입력하세요 (예: 어선에 무선설비가 없을 때 벌칙)"
           }
-          className="h-14 min-w-0 flex-1 rounded-lg border border-line-strong bg-surface px-4 text-[17px] text-ink placeholder:text-muted focus:border-brand focus:outline-none focus:ring-4 focus:ring-brand/15 disabled:cursor-default disabled:bg-fill"
+          className="h-full min-w-0 flex-1 bg-transparent px-3 text-[17px] font-medium text-ink placeholder:font-normal placeholder:text-muted focus:outline-none disabled:cursor-default"
         />
         {!demo && (
           <button
             type="button"
             onClick={submitLive}
             disabled={running || !text.trim()}
-            className="flex h-14 shrink-0 items-center gap-1.5 rounded-lg bg-brand px-6 text-[17px] font-bold text-white transition hover:bg-brand-strong disabled:opacity-40"
+            className="flex h-[46px] shrink-0 items-center gap-1.5 rounded-[10px] bg-brand px-5 text-[15.5px] font-semibold text-white transition hover:bg-brand-strong disabled:opacity-40"
           >
             검색
             <IconArrow className="h-4 w-4" />
@@ -52,31 +53,35 @@ export function QueryBar({ mode, traces, running, question, activeId, onDemo, on
         )}
       </div>
 
-      <div className="mt-3.5 flex flex-wrap items-center gap-2">
-        {traces.length > 0 && <span className="mr-1 text-xs text-muted">자주 찾는 질의</span>}
-        {traces.map((t) => (
-          <button
-            key={t.id}
-            type="button"
-            disabled={running}
-            onClick={() => {
-              if (demo) {
-                onDemo(t);
-                return;
-              }
-              setText(t.question);
-              onLive(t.question);
-            }}
-            className={`rounded-md border px-3 py-2 text-[15px] transition disabled:opacity-50 ${
-              activeId === t.id
-                ? "border-brand bg-brand-soft font-bold text-brand-strong"
-                : "border-line bg-surface text-ink-soft hover:bg-fill"
-            }`}
-          >
-            {t.question}
-          </button>
-        ))}
-      </div>
+      {traces.length > 0 && (
+        <div className="mt-5">
+          <div className="mb-2.5 text-[13px] font-semibold text-muted">추천 질문</div>
+          <div className="flex flex-wrap gap-2.5">
+            {traces.map((t) => (
+              <button
+                key={t.id}
+                type="button"
+                disabled={running}
+                onClick={() => {
+                  if (demo) {
+                    onDemo(t);
+                    return;
+                  }
+                  setText(t.question);
+                  onLive(t.question);
+                }}
+                className={`rounded-full border px-4 py-2.5 text-left text-[14px] leading-snug transition disabled:opacity-50 ${
+                  activeId === t.id
+                    ? "border-brand bg-brand-soft font-semibold text-brand-strong"
+                    : "border-line-strong bg-surface text-ink-soft hover:border-brand hover:bg-brand-weak hover:text-brand-strong"
+                }`}
+              >
+                {t.question}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
