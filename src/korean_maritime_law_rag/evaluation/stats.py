@@ -28,7 +28,7 @@ def mcnemar_from_pairs(a_correct: list[bool], b_correct: list[bool]) -> dict:
     b = a만 맞은 수(a 우세), c = b만 맞은 수(b 우세). 반환: {b, c, p}.
     """
     if len(a_correct) != len(b_correct):
-        raise ValueError("두 리스트 길이가 다릅니다")
+        raise ValueError("두 리스트 길이가 다르다")
     b = sum(1 for x, y in zip(a_correct, b_correct) if x and not y)
     c = sum(1 for x, y in zip(a_correct, b_correct) if y and not x)
     return {"b": b, "c": c, "p": mcnemar_p(b, c)}
