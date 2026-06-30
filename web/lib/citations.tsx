@@ -43,7 +43,7 @@ export function highlightCitations(text: string, opts: CiteOptions = {}): ReactN
         onMouseEnter={onHover && linkedId ? () => onHover(linkedId) : undefined}
         onMouseLeave={onHover && linkedId ? () => onHover(null) : undefined}
         className={[
-          "mx-px inline-flex items-center gap-0.5 whitespace-nowrap rounded-md border px-1.5 align-baseline font-semibold text-brand-strong transition",
+          "mx-px inline-flex items-center gap-0.5 whitespace-nowrap rounded-chip border px-1.5 align-baseline font-semibold text-brand-strong transition",
           isActive
             ? "border-brand bg-[#dce9ff] shadow-[0_0_0_3px_rgba(49,130,246,0.12)]"
             : "border-transparent bg-brand-soft",

@@ -62,7 +62,7 @@ export default function Home() {
 
       {/* 참고 고지 */}
       <div id="disclaimer" className="mx-auto w-full max-w-[880px] px-5">
-        <div className="mt-5 flex items-start gap-2.5 rounded-xl border border-[#dce9ff] bg-brand-weak px-4 py-3 text-[13.5px] leading-relaxed text-ink-soft">
+        <div className="mt-5 flex items-start gap-2.5 rounded-field border border-[#dce9ff] bg-brand-weak px-4 py-3 text-[13.5px] leading-relaxed text-ink-soft">
           <IconInfo className="mt-0.5 h-[18px] w-[18px] shrink-0 text-brand" />
           <span>
             이 시스템은 현장 <b className="font-semibold text-ink">참고용</b>이며 법적 효력이 없습니다.

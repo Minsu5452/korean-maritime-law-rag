@@ -24,7 +24,7 @@ export function QueryBar({ mode, traces, running, question, activeId, onDemo, on
 
   return (
     <div>
-      <div className="group flex h-[60px] items-center gap-1 rounded-[14px] border border-line-strong bg-surface pl-4 pr-2 transition focus-within:border-brand focus-within:shadow-[0_0_0_4px_rgba(49,130,246,0.18)]">
+      <div className="group flex h-[60px] items-center gap-1 rounded-field border border-line-strong bg-surface pl-4 pr-2 transition focus-within:border-brand focus-within:shadow-[0_0_0_4px_rgba(49,130,246,0.18)]">
         <IconSearch className="h-[22px] w-[22px] shrink-0 text-muted transition group-focus-within:text-brand" />
         <input
           value={demo ? question : text}
@@ -45,7 +45,7 @@ export function QueryBar({ mode, traces, running, question, activeId, onDemo, on
             type="button"
             onClick={submitLive}
             disabled={running || !text.trim()}
-            className="flex h-[46px] shrink-0 items-center gap-1.5 rounded-[10px] bg-brand px-5 text-[15.5px] font-semibold text-white transition hover:bg-brand-strong disabled:opacity-40"
+            className="flex h-[46px] shrink-0 items-center gap-1.5 rounded-control bg-brand px-5 text-[15.5px] font-semibold text-white transition hover:bg-brand-strong disabled:opacity-40"
           >
             검색
             <IconArrow className="h-4 w-4" />

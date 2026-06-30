@@ -54,7 +54,7 @@ function EvidenceCard({
     <article
       onMouseEnter={() => onHover(article.doc_id)}
       onMouseLeave={() => onHover(null)}
-      className={`group relative overflow-hidden rounded-2xl border bg-surface py-5 pl-6 pr-5 transition ${
+      className={`group relative overflow-hidden rounded-card border bg-surface py-5 pl-6 pr-5 transition ${
         linked
           ? "-translate-y-0.5 border-[#d4e3ff] shadow-[0_0_0_3px_#eaf2ff,0_4px_16px_rgba(0,0,0,0.06)]"
           : "border-line shadow-sm hover:-translate-y-0.5 hover:border-[#d4e3ff] hover:shadow-pop"
@@ -75,11 +75,11 @@ function EvidenceCard({
       </div>
 
       <div className="mt-2.5 flex flex-wrap gap-1.5">
-        <span className={`inline-flex items-center rounded-md border px-2 py-0.5 text-[12px] ${LAW_TYPE_TONE}`}>
+        <span className={`inline-flex items-center rounded-chip border px-2 py-0.5 text-[12px] ${LAW_TYPE_TONE}`}>
           {article.law_type}
         </span>
         {enforceDate && (
-          <span className="inline-flex items-center gap-1.5 rounded-md border border-line bg-fill px-2 py-0.5 text-[12px] text-ink-soft">
+          <span className="inline-flex items-center gap-1.5 rounded-chip border border-line bg-fill px-2 py-0.5 text-[12px] text-ink-soft">
             <span className="h-[5px] w-[5px] rounded-full bg-muted" />
             {enforceDate} 시행
           </span>
@@ -113,7 +113,7 @@ function EvidenceCard({
           href={lawGoKrUrl(article.law_name)}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-1.5 rounded-lg border border-line-strong bg-surface px-3.5 py-2 text-[13.5px] font-semibold text-brand-strong transition hover:border-brand hover:bg-brand-weak"
+          className="inline-flex items-center gap-1.5 rounded-control border border-line-strong bg-surface px-3.5 py-2 text-[13.5px] font-semibold text-brand-strong transition hover:border-brand hover:bg-brand-weak"
         >
           국가법령정보센터 원문
           <IconExternal className="h-3.5 w-3.5" />

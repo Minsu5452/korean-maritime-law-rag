@@ -9,7 +9,7 @@ export function Header({ mode, onMode }: { mode: Mode; onMode: (m: Mode) => void
     <header className="sticky top-0 z-30 border-b border-line bg-surface/85 backdrop-blur-md backdrop-saturate-150">
       <div className="mx-auto flex h-[60px] max-w-[880px] items-center gap-3 px-5">
         <div className="flex items-center gap-2.5">
-          <div className="flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-[10px] bg-gradient-to-b from-[#3a8bff] to-brand text-white shadow-[0_2px_6px_rgba(49,130,246,0.28)]">
+          <div className="flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-control bg-gradient-to-b from-[#3a8bff] to-brand text-white shadow-[0_2px_6px_rgba(49,130,246,0.28)]">
             <IconLogo className="h-6 w-6" />
           </div>
           <div className="leading-tight">
@@ -24,7 +24,7 @@ export function Header({ mode, onMode }: { mode: Mode; onMode: (m: Mode) => void
             target="_blank"
             rel="noreferrer"
             aria-label="GitHub 저장소"
-            className="flex h-[38px] w-[38px] items-center justify-center rounded-[9px] text-muted transition hover:bg-fill hover:text-ink"
+            className="flex h-[38px] w-[38px] items-center justify-center rounded-control text-muted transition hover:bg-fill hover:text-ink"
           >
             <IconGithub className="h-5 w-5" />
           </a>

@@ -12,7 +12,7 @@ export function ModeToggle({
     <div
       role="group"
       aria-label="실행 모드"
-      className="inline-flex rounded-[9px] bg-fill p-[3px]"
+      className="inline-flex rounded-control bg-fill p-[3px]"
     >
       {(["demo", "live"] as const).map((m) => (
         <button

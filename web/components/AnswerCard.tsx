@@ -17,7 +17,7 @@ export function AnswerCard({
 
   if (phase === "error") {
     return (
-      <div className="rounded-2xl border border-danger/30 bg-[#fef2f2] p-5 text-[15px] text-danger">
+      <div className="rounded-card border border-danger/30 bg-[#fef2f2] p-5 text-[15px] text-danger">
         <p className="font-bold">라이브 백엔드에 연결하지 못했습니다.</p>
         <p className="mt-1">{error}</p>
         <p className="mt-2 text-[13px] text-danger/80">
@@ -37,11 +37,11 @@ export function AnswerCard({
   const waiting = phase === "running" && answer.length === 0;
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-line bg-surface shadow-card">
+    <div className="overflow-hidden rounded-card border border-line bg-surface shadow-card">
       <div className="flex flex-wrap items-center gap-2 px-5 pt-4 sm:px-6">
         <span className="text-[14px] font-bold text-ink">답변</span>
         {response && !response.refused && (
-          <span className="inline-flex items-center gap-1.5 rounded-md bg-fill px-2 py-1 text-[11.5px] font-semibold text-ink-soft">
+          <span className="inline-flex items-center gap-1.5 rounded-chip bg-fill px-2 py-1 text-[11.5px] font-semibold text-ink-soft">
             <IconSparkle className="h-3 w-3" />
             근거 기반 생성
           </span>

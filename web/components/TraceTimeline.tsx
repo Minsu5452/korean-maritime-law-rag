@@ -57,7 +57,7 @@ export function TraceTimeline({ seen, activeStep, response, running }: Props) {
         )}
       </div>
 
-      <div className="rounded-2xl border border-line bg-surface px-5 py-5 shadow-sm sm:px-6">
+      <div className="rounded-card border border-line bg-surface px-5 py-5 shadow-sm sm:px-6">
         <div className="flex items-start">
           {PIPELINE.map((node, i) => {
             const st = stateOf(node.key);
@@ -124,7 +124,7 @@ export function TraceTimeline({ seen, activeStep, response, running }: Props) {
 
         {response && (
           <div className="mt-5 flex flex-wrap items-center gap-2 border-t border-line pt-4 text-[13px] text-muted">
-            <span className="rounded-md bg-brand-soft px-2.5 py-0.5 text-[12.5px] font-semibold text-brand-strong">
+            <span className="rounded-chip bg-brand-soft px-2.5 py-0.5 text-[12.5px] font-semibold text-brand-strong">
               {TYPE_LABEL[response.query_type] ?? response.query_type}
             </span>
             {response.retrieval_attempts > 0 && (
