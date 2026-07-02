@@ -1,7 +1,7 @@
 # 해양법령 길잡이 — 웹 데모
 
-상위 `korean-maritime-law-rag` 백엔드를 해양경찰청 현장 실무 관점에서 보여주는 Next.js
-프론트엔드입니다. 에이전트가 질문을 분석하고, 조문을
+상위 저장소의 `korean-maritime-law-rag` 백엔드를 해양경찰청 현장 실무 관점에서 보여주는
+Next.js 프론트엔드입니다. 에이전트가 질문을 분석하고, 조문을
 검색하고, 근거를 확인하고, 답변을 작성한 뒤 인용을 검증하는 과정을 단계별로 시각화하고,
 답변이 근거로 삼은 조문을 시행일·원문 링크와 함께 카드로 보여줍니다.
 
@@ -24,7 +24,7 @@ make up && make index
 OPENAI_API_KEY=... uv run uvicorn korean_maritime_law_rag.serving.app:app --port 8000
 ```
 
-백엔드 주소는 `NEXT_PUBLIC_API_BASE`(기본값 `http://localhost:8000`)로 바꿉니다.
+백엔드 주소는 `NEXT_PUBLIC_API_BASE`로 설정합니다(기본값 `http://localhost:8000`).
 
 ## 빌드 / 배포
 

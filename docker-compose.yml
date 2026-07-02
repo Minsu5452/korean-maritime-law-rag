@@ -11,7 +11,7 @@ services:
     volumes: ["qdrant_data:/qdrant/storage"]
 
   # 로컬 모니터링. INIT_* 환경변수로 개발용 프로젝트를 자동 생성한다.
-  # 자체 호스팅 로컬 자격증명이라 외부 비밀이 아니다(평가의 선택 기능).
+  # 자체 호스팅 로컬 자격증명이라 외부 비밀이 아니다(모니터링은 선택 기능).
   langfuse-db:
     image: postgres:16-alpine
     environment:
