@@ -1,6 +1,6 @@
 # 해양 법령 RAG
 
-[![CI](https://github.com/Minsu5452/korean-maritime-law-rag/actions/workflows/ci.yml/badge.svg)](https://github.com/Minsu5452/korean-maritime-law-rag/actions/workflows/ci.yml) ![Python](https://img.shields.io/badge/python-3.12-3776AB?logo=python&logoColor=white) [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+[![CI](https://github.com/Minsu5452/korean-maritime-law-rag/actions/workflows/ci.yml/badge.svg)](https://github.com/Minsu5452/korean-maritime-law-rag/actions/workflows/ci.yml) [![Live Demo](https://img.shields.io/badge/라이브_데모-vercel-000000?logo=vercel&logoColor=white)](https://korean-maritime-law-rag.vercel.app) ![Python](https://img.shields.io/badge/python-3.12-3776AB?logo=python&logoColor=white) [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
 해양 법령을 조문 단위로 검색하고, 답변마다 근거가 된 조문을 함께 인용하는 RAG 시스템입니다.
 
@@ -43,8 +43,9 @@
 | 언어·프레임워크 | ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white) ![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white) |
 | 검색 | ![BM25](https://img.shields.io/badge/BM25-rank--bm25-5B6770) ![Qdrant](https://img.shields.io/badge/Qdrant-DC244C?logo=qdrant&logoColor=white) ![Neo4j](https://img.shields.io/badge/Neo4j-018BFF?logo=neo4j&logoColor=white) |
 | 한국어 처리 | ![Kiwi](https://img.shields.io/badge/Kiwi-5B6770) ![KURE-v1](https://img.shields.io/badge/KURE--v1-embedding-5B6770) |
-| LLM 오케스트레이션 | ![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?logo=langchain&logoColor=white) ![LangGraph](https://img.shields.io/badge/LangGraph-1C3C3C) |
+| LLM·오케스트레이션 | ![OpenAI API](https://img.shields.io/badge/OpenAI_API-412991?logo=openai&logoColor=white) ![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?logo=langchain&logoColor=white) ![LangGraph](https://img.shields.io/badge/LangGraph-1C3C3C) |
 | 모니터링 | ![Langfuse](https://img.shields.io/badge/Langfuse-555) |
+| 인프라·배포 | ![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?logo=githubactions&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel-000000?logo=vercel&logoColor=white) |
 | 코드 품질 | ![pytest](https://img.shields.io/badge/pytest-0A9EDC?logo=pytest&logoColor=white) ![Ruff](https://img.shields.io/badge/Ruff-D7FF64?logo=ruff&logoColor=black) ![mypy](https://img.shields.io/badge/mypy-2A6DB2) |
 | 프론트엔드 | ![Next.js](https://img.shields.io/badge/Next.js-000000?logo=nextdotjs&logoColor=white) ![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?logo=tailwindcss&logoColor=white) |
 
