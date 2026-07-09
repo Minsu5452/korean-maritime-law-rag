@@ -33,7 +33,7 @@ export interface AgentResponse {
   used_live_fallback: boolean;
 }
 
-// /query/stream이 흘려보내는 노드 진행 이벤트.
+// /query/stream이 내보내는 노드 진행 이벤트.
 export interface TraceEvent {
   step: string; // classify | retrieve | grade_evidence | generate | verify | refuse | refuse_low_confidence
   label: string;

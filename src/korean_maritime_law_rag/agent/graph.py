@@ -234,7 +234,7 @@ class Agent:
         return self._to_response(self._graph.invoke({"query": query}, config=self._config()))
 
     def stream(self, query: str) -> Iterator[dict]:
-        """LangGraph 노드 실행을 순서대로 흘려보낸다(SSE 스트리밍용).
+        """LangGraph 노드 실행 이벤트를 순서대로 내보낸다(SSE 스트리밍용).
 
         각 노드가 끝날 때 진행 이벤트(step/label/현재 query_type·strategy)를 내고,
         마지막에 완성된 AgentResponse를 step='final'로 내보낸다. 재검색·재생성
