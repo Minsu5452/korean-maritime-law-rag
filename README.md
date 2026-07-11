@@ -1,6 +1,6 @@
 # 해양 법령 RAG
 
-[![CI](https://github.com/Minsu5452/korean-maritime-law-rag/actions/workflows/ci.yml/badge.svg)](https://github.com/Minsu5452/korean-maritime-law-rag/actions/workflows/ci.yml) [![Live Demo](https://img.shields.io/badge/라이브_데모-vercel-000000?logo=vercel&logoColor=white)](https://korean-maritime-law-rag.vercel.app) ![Python](https://img.shields.io/badge/python-3.12-3776AB?logo=python&logoColor=white) [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+[![CI](https://github.com/Minsu5452/maritime-law-rag-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/Minsu5452/maritime-law-rag-agent/actions/workflows/ci.yml) [![Live Demo](https://img.shields.io/badge/라이브_데모-vercel-000000?logo=vercel&logoColor=white)](https://korean-maritime-law-rag.vercel.app) ![Python](https://img.shields.io/badge/python-3.12-3776AB?logo=python&logoColor=white) [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
 해양 법령을 조문 단위로 검색하고, 답변마다 근거가 된 조문을 함께 인용하는 RAG 시스템입니다.
 
@@ -145,7 +145,7 @@ OPENAI_API_KEY=... uv run python scripts/measure_cost.py
 ## 프로젝트 구조
 
 ```text
-korean-maritime-law-rag/
+maritime-law-rag-agent/
 ├── src/korean_maritime_law_rag/
 │   ├── collectors/ law.go.kr 수집기
 │   ├── parsing/    조문 파서와 인용 관계 추출

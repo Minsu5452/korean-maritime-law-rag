@@ -1,5 +1,5 @@
 [project]
-name = "korean-maritime-law-rag"
+name = "maritime-law-rag-agent"
 version = "0.1.0"
 description = "해양 법령 근거 인용 RAG"
 readme = "README.md"
@@ -31,7 +31,7 @@ obs = ["langfuse>=2.0,<3"]              # Langfuse 모니터링
 eval = ["ragas>=0.2", "datasets>=2.0"]  # RAGAS 평가
 
 [project.urls]
-Repository = "https://github.com/Minsu5452/korean-maritime-law-rag"
+Repository = "https://github.com/Minsu5452/maritime-law-rag-agent"
 
 [dependency-groups]
 dev = ["pytest>=8.0", "respx>=0.21", "ruff>=0.4", "mypy>=1.10"]

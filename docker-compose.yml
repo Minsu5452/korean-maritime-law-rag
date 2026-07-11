@@ -29,7 +29,7 @@ services:
       NEXTAUTH_SECRET: local-dev-nextauth-secret
       SALT: local-dev-salt
       TELEMETRY_ENABLED: "false"
-      LANGFUSE_INIT_ORG_ID: korean-maritime-law-rag
+      LANGFUSE_INIT_ORG_ID: maritime-law-rag-agent
       LANGFUSE_INIT_PROJECT_ID: mlr
       LANGFUSE_INIT_PROJECT_PUBLIC_KEY: pk-lf-localdev
       LANGFUSE_INIT_PROJECT_SECRET_KEY: sk-lf-localdev

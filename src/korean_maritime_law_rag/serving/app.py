@@ -15,7 +15,7 @@ from korean_maritime_law_rag.config import load_settings
 from korean_maritime_law_rag.llm import get_chat_model
 from korean_maritime_law_rag.observability import build_langfuse_callbacks
 
-app = FastAPI(title="korean-maritime-law-rag")
+app = FastAPI(title="maritime-law-rag-agent")
 
 # 로컬 프론트엔드(web/)에서 호출할 수 있도록 CORS 허용 출처를 연다.
 # 기본값은 Next.js 개발 서버. 배포 시 MLR_CORS_ORIGINS로 덮어쓴다(쉼표 구분).

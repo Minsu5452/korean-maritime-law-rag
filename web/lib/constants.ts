@@ -1,4 +1,4 @@
-export const REPO_URL = "https://github.com/Minsu5452/korean-maritime-law-rag";
+export const REPO_URL = "https://github.com/Minsu5452/maritime-law-rag-agent";
 
 // 국가법령정보센터 법령 원문 링크(법령명 기준).
 export const lawGoKrUrl = (lawName: string) =>
